@@ -1,0 +1,20 @@
+#        _
+#   _ __(_)_ __   __ _ _ __ ___ _ __
+#  | '__| | '_ \ / _` | '__/ _ \ '_ \
+#  | |  | | |_) | (_| | | |  __/ |_) |
+#  |_|  |_| .__/ \__, |_|  \___| .__/
+#         |_|    |___/         |_|
+#
+# > guillaume boudon
+# > https://github.com/guillaumeboudon/dotfiles
+
+
+# Additional types
+--type-add
+style:*.{css,sass,scss,less}
+
+# Ignore case until you put an uppercase
+--smart-case
+
+# Follow symlinks
+--follow

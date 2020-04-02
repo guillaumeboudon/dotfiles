@@ -1,0 +1,31 @@
+#         _ _   _
+#    __ _(_) |_(_) __ _ _ __   ___  _ __ ___
+#   / _` | | __| |/ _` | '_ \ / _ \| '__/ _ \
+#  | (_| | | |_| | (_| | | | | (_) | | |  __/
+#   \__, |_|\__|_|\__, |_| |_|\___/|_|  \___|
+#   |___/         |___/
+#
+# > guillaume boudon
+# > https://github.com/guillaumeboudon/dotfiles
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Application specific files
+*.sw[nop]
+tags
+
+# ruby
+.irb_history
+
+# Prevent any recursion problem with my dotfiles
+.dot
