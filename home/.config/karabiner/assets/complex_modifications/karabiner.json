@@ -1,6 +1,14 @@
 {
   "title": "My custom keyboard bindings",
   "rules": [{
+      "description": "Caps Lock to Escape on single press, Left Control on press and hold.",
+      "manipulators": [{
+        "type": "basic",
+        "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] } },
+        "to": [ { "key_code": "escape" } ],
+        "to_if_held_down": [ { "key_code": "left_control" } ]
+      }]
+    }, {
     "description": "Post \"Escape\" if \"Control\" is tapped, \"Control\" if held ; \"Control\"+\"Backspace\" to \"Delete\"",
     "manipulators": [{
       "type": "basic",
