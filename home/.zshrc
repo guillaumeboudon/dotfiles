@@ -160,12 +160,14 @@ unsetopt AUTO_CD # Explicitely type `cd` commands
 
 # base16-shell
 # ------------------------------------------------------------------------------
-BASE16_SHELL="$XDG_CONFIG_HOME/base16-shell/"
-export BASE16_SHELL_DEFAULT_VARIANT="1"
-[ -n "$PS1" ] && \
-  [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-  eval "$("$BASE16_SHELL/profile_helper.sh")"
+# BASE16_SHELL="$XDG_CONFIG_HOME/base16-shell/"
+# export BASE16_SHELL_DEFAULT_VARIANT="1"
+# [ -n "$PS1" ] && \
+#   [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#   eval "$("$BASE16_SHELL/profile_helper.sh")"
 # _try_source "$XDG_CONFIG_HOME/base16-fzf/bash/base16-onedark.config"
+source "$XDG_DATA_HOME/base16/onedark.sh"
+source "$HOME/Code/guillaumeboudon/base16-scripts/scripts/shell.sh"
 
 # grep
 # ------------------------------------------------------------------------------

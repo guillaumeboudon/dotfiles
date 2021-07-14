@@ -21,7 +21,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " > Interface
 " ------------------------------------------------------------------------------
 Plug 'airblade/vim-gitgutter'
-Plug 'itchny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " > General enhancements
@@ -58,11 +58,11 @@ Plug 'chrisbra/Colorizer'
 
 " > Colorschemes
 " ------------------------------------------------------------------------------
-Plug 'chriskempson/base16-vim'
-Plug 'joshdick/onedark.vim'
-Plug 'morhetz/gruvbox'
-Plug 'jeffkreeftmeijer/vim-dim'
-Plug 'noahfrederick/vim-noctu'
+" Plug 'chriskempson/base16-vim'
+" Plug 'joshdick/onedark.vim'
+" Plug 'morhetz/gruvbox'
+" Plug 'jeffkreeftmeijer/vim-dim'
+" Plug 'noahfrederick/vim-noctu'
 
 call plug#end()
 
@@ -241,7 +241,7 @@ set wildmode=full              " Command-line completion settings
 " > Colors
 " ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-colorscheme base16-onedark
+colorscheme base16
 hi Visual cterm=reverse
 call Base16hi("SpellBad", g:base16_gui00, g:base16_gui08, g:base16_cterm00, g:base16_cterm08, "", "")
 
@@ -264,7 +264,7 @@ let g:fzf_colors =
 
 " Gruvbox
 " set background=dark
-" set termguicolors
+set termguicolors
 " " let g:gruvbox_contrast_dark='hard'
 " " let g:gruvbox_sign_column='bg0'
 " let g:gruvbox_number_column='bg1'
