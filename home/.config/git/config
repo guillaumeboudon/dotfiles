@@ -1,0 +1,35 @@
+[include]
+  path = "~/.config/git/local.config"
+
+# [hub]
+#   protocol = "https"
+
+[alias]
+  aa = "add ."
+  br = "branch"
+  brd = "branch -D"
+  ci = "commit"
+  cia = "commit --amend"
+  cim = "commit -m"
+  co = "checkout"
+  cob = "checkout -b"
+  history = "log --graph --color --pretty=format:'%C(cyan)%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %Cred%d%Creset'"
+  ps = "push origin HEAD"
+  pl = "pull origin HEAD"
+  st = "status -s"
+  unstash = "stash pop"
+  stashes = "stash list --pretty=format:'%C(cyan)%gd%Creset %s'"
+  fuckit = "!git clean -d -f && git reset --hard"
+  tabula-rasa = "!git branch | grep -v \"master\\|develop\\|*\" | xargs git branch -D"
+  ctags = "!.git/hooks/ctags"
+  list-merged = "!git branch --merged | grep -E -v \"(^\\*|master|develop)\""
+  remove-merged = "!git branch --merged | grep -E -v \"(^\\*|master|develop)\" | xargs git branch -d"
+
+[core]
+  autocrlf = "input"
+  editor = "nvim"
+  excludesfile = "~/.config/git/ignore"
+  pager = "diff-so-fancy | emojify | less -RFX"
+
+[commit]
+  # gpgsign = true
