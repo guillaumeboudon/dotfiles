@@ -9,8 +9,10 @@ brew "emojify"
 brew "fzf"
 brew "git"
 brew "heroku/brew/heroku"
+brew "gnupg"
 brew "neovim"
 brew "nodenv"
+brew "openssl"
 brew "postgresql", restart_service: true
 brew "puma/puma/puma-dev"
 brew "rbenv"
@@ -42,3 +44,8 @@ cask "iterm2"
 cask "karabiner-elements"
 cask "rectangle"
 cask "slack"
+
+# Apps from App Store
+mas "CopyClip", id: 595191960
+mas "Pixelmator", id: 407963104
+mas "The Unarchiver", id: 425424353
