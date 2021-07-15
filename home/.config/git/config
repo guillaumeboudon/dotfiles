@@ -13,6 +13,8 @@
   cim = "commit -m"
   co = "checkout"
   cob = "checkout -b"
+  dic = "diff --cached"
+  dis = "diff --name-only"
   history = "log --graph --color --pretty=format:'%C(cyan)%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %Cred%d%Creset'"
   ps = "push origin HEAD"
   pl = "pull origin HEAD"
