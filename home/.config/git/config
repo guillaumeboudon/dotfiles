@@ -7,6 +7,7 @@
 [alias]
   aa = "add ."
   br = "branch"
+  brc = "rev-parse --abbrev-ref HEAD"
   brd = "branch -D"
   ci = "commit"
   cia = "commit --amend"
@@ -16,8 +17,8 @@
   dic = "diff --cached"
   dis = "diff --name-only"
   history = "log --graph --color --pretty=format:'%C(cyan)%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %Cred%d%Creset'"
-  ps = "push origin HEAD"
-  pl = "pull origin HEAD"
+  plo = "!git pull origin $(git brc)"
+  pso = "!git push origin $(git brc)"
   st = "status -s"
   unstash = "stash pop"
   stashes = "stash list --pretty=format:'%C(cyan)%gd%Creset %s'"
