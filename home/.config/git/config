@@ -1,8 +1,8 @@
 [include]
   path = "~/.config/git/local.config"
 
-# [hub]
-#   protocol = "https"
+[init]
+  defaultBranch = main
 
 [alias]
   aa = "add ."
@@ -36,3 +36,6 @@
 
 [commit]
   # gpgsign = true
+
+[pull]
+  rebase = false
