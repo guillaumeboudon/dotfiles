@@ -1,0 +1,9 @@
+unbind common j
+unbind common k
+unbind common s
+unbind common t
+
+bind common j toggle show_remaining_time
+bind common k toggle shuffle
+bind common s win-up
+bind common t win-down

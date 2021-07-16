@@ -3,6 +3,7 @@ tap "puma/puma"
 
 # Brews
 brew "bat"
+brew "cmus"
 brew "coreutils"
 brew "diff-so-fancy"
 brew "emojify"
