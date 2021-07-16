@@ -44,6 +44,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ZoomWin'
+Plug 'vimwiki/vimwiki'
 Plug 'w0rp/ale'
 
 " > Syntax
