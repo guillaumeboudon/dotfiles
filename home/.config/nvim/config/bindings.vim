@@ -24,6 +24,7 @@ cnoremap %g %g/\v//g<Left><Left><Left>
 
 " Bindings
 nmap ' :Buffers<CR>
+nmap - :Fern %:h<CR>
 nmap <Space> za
 nmap <Leader><Space> :noh<CR>
 nmap <Leader><Tab> :b#<CR>
@@ -32,8 +33,8 @@ nmap <Leader>f :Rg<Space>
 nmap <Leader>g :GitGutterToggle<CR>
 nmap <Leader>h :call GoToTag()<CR>
 nmap <Leader>j :Rg <C-R>=expand("<cword>")<CR><CR>
-nmap <Leader>k :NERDTreeToggle<CR>
-nmap <Leader>l :NERDTreeFind<CR>
+nmap <Leader>k :Fern . -drawer -toggle<CR>
+nmap <Leader>l :Fern . -drawer -toggle -reveal=%<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>s :setlocal spell!<CR>
 nmap <Leader>t :Files<CR>

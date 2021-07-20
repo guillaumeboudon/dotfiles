@@ -30,7 +30,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'qpkorr/vim-bufkill'
 " Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'lambdalisue/fern.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -54,27 +54,6 @@ call plug#end()
 
 " > Plugins settings
 " ==============================================================================
-
-" NERDTree
-" ------------------------------------------------------------------------------
-let g:NERDTreeShowHidden=1
-let g:NERDTreeAutoDeletBuffer=1
-let g:NERDTreeStatusLine=-1
-" Close Vim if NERDTree is the last open tab
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-" Bépo mappings
-let g:NERDTreeMapChdir = 'H'
-let g:NERDTreeMapChdir = 'hd'
-let g:NERDTreeMapCWD = 'HD'
-let g:NERDTreeMapOpenInTab = 'j'
-let g:NERDTreeMapJumpLastChild = 'J'
-let g:NERDTreeMapOpenVSplit = 'k'
-let g:NERDTreeMapRefresh = 'l'
-let g:NERDTreeMapRefreshRoot = 'L'
-let g:NERDTreeBookmarksFile = $XDG_CACHE_HOME."/vim/NERDTreeBookmarks"
-" set undodir=~/.cache/vim/undos " Dossier pour les undos
 
 " vim-gitgutter
 " ------------------------------------------------------------------------------
@@ -338,10 +317,6 @@ autocmd Filetype elm      setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype todo     setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype ruby     setlocal colorcolumn=80,100
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTreeToggle' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 augroup END
 

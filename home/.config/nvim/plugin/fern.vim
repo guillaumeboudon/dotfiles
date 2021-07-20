@@ -1,0 +1,33 @@
+let g:fern#default_hidden=1
+let g:fern#disable_default_mappings=1
+
+function! s:init_fern() abort
+  nmap <buffer><expr>
+      \ <Plug>(fern-my-open-or-expand-or-collapse)
+      \ fern#smart#leaf(
+      \   "\<Plug>(fern-action-open)",
+      \   "\<Plug>(fern-action-expand)",
+      \   "\<Plug>(fern-action-collapse)",
+      \ )
+
+  nmap <buffer><expr>
+      \ <Plug>(fern-my-expand-or-open)
+      \ fern#smart#leaf(
+      \   "\<Plug>(fern-action-open)",
+      \   "\<Plug>(fern-action-expand)"
+      \ )
+
+  nmap <buffer><nowait> <Return> <Plug>(fern-my-open-or-expand-or-collapse)
+  nmap <buffer> . <Plug>(fern-action-hidden:toggle)
+  nmap <buffer> c <Plug>(fern-action-collapse)
+  nmap <buffer> D <Plug>(fern-action-remove)
+  nmap <buffer> d <Plug>(fern-action-trash)
+  nmap <buffer> n <Plug>(fern-action-new-path)
+  nmap <buffer> r <Plug>(fern-my-expand-or-open)
+  nmap <buffer> u <Plug>(fern-action-leave)
+endfunction
+
+augroup fern_autocmds
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
