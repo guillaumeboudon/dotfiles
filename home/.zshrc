@@ -261,6 +261,8 @@ alias vi="/usr/local/bin/vim"
 
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
+alias w="watson"
+
 alias bx="bundle exec"
 
 # Scripts
