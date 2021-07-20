@@ -1,9 +1,5 @@
-unbind common j
-unbind common k
-unbind common s
-unbind common t
-
-bind common j toggle show_remaining_time
-bind common k toggle shuffle
-bind common s win-up
-bind common t win-down
+bind -f common j toggle show_remaining_time
+bind -f common k toggle shuffle
+bind -f common s win-up
+bind -f common t win-down
+bind -f common u shell cmus_update

@@ -250,6 +250,7 @@ _try_source /usr/local/etc/profile.d/z.sh
 # ==============================================================================
 
 _force_prepend_to_path "/usr/local/opt/coreutils/libexec/gnubin"
+_force_prepend_to_path "$HOME/.local/bin"
 
 
 # > ALIASES {{{1
