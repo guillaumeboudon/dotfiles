@@ -181,10 +181,10 @@ set visualbell t_vb=           " Pas de flash ni de bip du tout
 " ------------------------------------------------------------------------------
 set backup                     " Active le backup des fichiers sauvegardés
 set writebackup                " Active le backup pendant la sauvegarde
-set swapfile                   " Active les fichiers swap
+set noswapfile                 " Désactive les fichiers swap
 set undofile                   " Active les fichers undo
 set backupdir=~/.cache/vim/backups " Dossier pour les backups
-set directory=~/.cache/vim/swaps " Dossier pour les fichiers swap
+"set directory=~/.cache/vim/swaps " Dossier pour les fichiers swap
 set undodir=~/.cache/vim/undos " Dossier pour les undos
 set tags^=./.git/tags;         " Set tags file
 
