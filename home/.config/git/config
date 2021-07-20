@@ -17,6 +17,7 @@
   dic = "diff --cached"
   dis = "diff --name-only"
   history = "log --graph --color --pretty=format:'%C(cyan)%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %Cred%d%Creset'"
+  his = "history -n 10"
   plo = "!git pull origin $(git brc)"
   pso = "!git push origin $(git brc)"
   st = "status -s"
@@ -26,7 +27,8 @@
   tabula-rasa = "!git branch | grep -v \"master\\|develop\\|*\" | xargs git branch -D"
   ctags = "!.git/hooks/ctags"
   list-merged = "!git branch --merged | grep -E -v \"(^\\*|master|develop)\""
-  remove-merged = "!git branch --merged | grep -E -v \"(^\\*|master|develop)\" | xargs git branch -d"
+  remove-merged = "!git list-merged | xargs git branch -d"
+  wip = "for-each-ref --sort='-authordate:iso8601' --format='%(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads"
 
 [core]
   autocrlf = "input"
