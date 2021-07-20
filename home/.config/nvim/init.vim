@@ -26,24 +26,17 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " > General enhancements
 " ------------------------------------------------------------------------------
-Plug 'aserebryakov/vim-todo-lists'
-Plug 'ervandew/supertab'
-Plug 'jiangmiao/auto-pairs'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript'] }
 Plug 'qpkorr/vim-bufkill'
 " Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/ZoomWin'
 Plug 'vimwiki/vimwiki'
 Plug 'w0rp/ale'
 
@@ -56,14 +49,6 @@ Plug 'lmeijvogel/vim-yaml-helper'
 Plug 'tpope/vim-rails'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': ['tex', 'plaintex'] }
 Plug 'chrisbra/Colorizer'
-
-" > Colorschemes
-" ------------------------------------------------------------------------------
-" Plug 'chriskempson/base16-vim'
-" Plug 'joshdick/onedark.vim'
-" Plug 'morhetz/gruvbox'
-" Plug 'jeffkreeftmeijer/vim-dim'
-" Plug 'noahfrederick/vim-noctu'
 
 call plug#end()
 
@@ -299,76 +284,8 @@ command! BufCloseOthers %bd|e#
 " > Bindings
 " ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-source ~/.config/nvim/bepo.vim
-
-" Mappe <Leader> et <LocalLeader>
-let mapleader = ","
-let maplocalleader = ";"
-
-" Mouvements de pages
-noremap s gk
-noremap t gj
-" noremap C 20h
-noremap <C-t> 10j
-noremap <C-s> 10k
-" noremap R 20l
-noremap <Return> zz
-noremap ' `
-" nnoremap <C-t> <C-W><C-J>
-" nnoremap <C-s> <C-W><C-K>
-" nnoremap <C-r> <C-W><C-L>
-" nnoremap <C-c> <C-W><C-H>
-
-" Always apply 'very magic'
-" nnoremap /  /\v
-" nnoremap ?  ?\v
-cnoremap %s %s/\v//g<Left><Left><Left>
-cnoremap %g %g/\v//g<Left><Left><Left>
-
-" Bindings
-nmap ' :Buffers<CR>
-nmap <Space> za
-nmap <Leader><Space> :noh<CR>
-nmap <Leader><Tab> :b#<CR>
-nmap <Leader>a :Rg<Space>
-nmap <Leader>b :setlocal wrap!<CR>:setlocal wrap?<CR>
-nmap <Leader>c :Colors<CR>
-nmap <Leader>f :call GoToTag()<CR>
-nmap <Leader>g :GitGutterToggle<CR>
-nmap <Leader>h :Rg <C-R>=expand("<cword>")<CR><CR>
-nmap <Leader>k :NERDTreeToggle<CR>
-nmap <Leader>l :NERDTreeFind<CR>
-nmap <Leader>r :Tags<CR>
-nmap <Leader>s :setlocal spell!<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>u :MundoToggle<CR>
-nmap <Leader>z :setlocal foldenable!<CR>:setlocal foldenable?<CR>
-noremap U :redo<CR>
-
-" vim-surround
-let g:surround_no_mappings=1
-nmap ds  <Plug>Dsurround
-nmap ls  <Plug>Csurround
-nmap lS  <Plug>CSurround
-nmap ys  <Plug>Ysurround
-nmap yS  <Plug>YSurround
-nmap yss <Plug>Yssurround
-nmap ySs <Plug>YSsurround
-nmap ySS <Plug>YSsurround
-" xmap <Leader>s    <Plug>Vsurround
-xmap S   <Plug>VSurround
-xmap gS  <Plug>VgSurround
-
-" Add «» surroundings
-let g:surround_171 = "« \r »"
-let g:surround_187 = "« \r »"
-
-" Divers
-command! W write
-
-" Use Tab as %
-nnoremap <Tab> %
-vnoremap <Tab> %
+source ~/.config/nvim/config/bepo.vim
+source ~/.config/nvim/config/bindings.vim
 
 
 " ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
