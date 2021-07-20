@@ -231,9 +231,15 @@ alias ledp="ledger -f ~/.config/ledger/main.ledger ${LEDGER_ARGS} --pager=less"
 _has rbenv  && eval "$(rbenv init -)"
 _has nodenv && eval "$(nodenv init -)"
 
-# Watson
+# watson
 # ------------------------------------------------
 export WATSON_DIR="$XDG_CONFIG_HOME/watson"
+
+# youtube-dl
+# ------------------------------------------------
+alias yd="youtube-dl --add-metadata --continue --ignore-errors"
+alias yda="yd --extract-audio --audio-format mp3 --output \"~/Downloads/youtube-dl/audio/%(channel)s/%(title)s.%(ext)s\""
+alias ydv="yd --format bestvideo+bestaudio --merge-output-format mkv --output \"~/Downloads/youtube-dl/video/%(channel)s/%(title)s.%(ext)s\""
 
 # z
 # ------------------------------------------------
