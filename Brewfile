@@ -9,8 +9,8 @@ brew "diff-so-fancy"
 brew "emojify"
 brew "fzf"
 brew "git"
-brew "heroku/brew/heroku"
 brew "gnupg"
+brew "heroku/brew/heroku"
 brew "neovim"
 brew "nodenv"
 brew "openssl"
@@ -46,8 +46,9 @@ cask "iterm2"
 cask "karabiner-elements"
 cask "rectangle"
 cask "slack"
+cask "vlc"
 
 # Apps from App Store
 mas "CopyClip", id: 595191960
 mas "Pixelmator", id: 407963104
-mas "The Unarchiver", id: 425424353
+mas "The Archive Browser", id: 510232205
