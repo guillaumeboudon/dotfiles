@@ -122,6 +122,7 @@ export VISUAL="$EDITOR"
 
 # Clean home directory
 # ------------------------------------------------------------------------------
+export ELM_HOME="$XDG_DATA_HOME/elm"
 # export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 # export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
@@ -243,6 +244,7 @@ alias ydv="yd --format bestvideo+bestaudio --merge-output-format mkv --output \"
 
 # z
 # ------------------------------------------------
+export _Z_DATA="$XDG_DATA_HOME/z"
 _try_source /usr/local/etc/profile.d/z.sh
 
 
@@ -306,7 +308,7 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zmodload zsh/complist
-compinit -i
+compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 _comp_options+=(globdots) # Include hidden files
 
 _try_source "$XDG_CONFIG_HOME/tmuxinator/tmuxinator.zsh"
