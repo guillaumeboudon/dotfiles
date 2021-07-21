@@ -186,7 +186,7 @@ set undofile                   " Active les fichers undo
 set backupdir=~/.cache/vim/backups " Dossier pour les backups
 "set directory=~/.cache/vim/swaps " Dossier pour les fichiers swap
 set undodir=~/.cache/vim/undos " Dossier pour les undos
-set tags^=./.git/tags;         " Set tags file
+set tags^=.tags;               " Set tags file
 
 " > Folding
 " ------------------------------------------------------------------------------
@@ -367,7 +367,7 @@ autocmd VimResized * :wincmd =
 " autocmd FileType qf nmap <buffer> q :q<cr>
 " autocmd FileType qf setlocal number nolist
 
-autocmd FileType markdown setlocal spell spelllang=fr
+" autocmd FileType markdown setlocal spell spelllang=fr
 function! FzfSpellSink(word)
   exe 'normal! "_ciw'.a:word
 endfunction

@@ -13,6 +13,7 @@ Thumbs.db
 # Application specific files
 *.sw[nop]
 tags
+.tags
 
 # ruby
 .irb_history
