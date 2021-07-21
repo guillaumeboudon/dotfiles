@@ -23,3 +23,11 @@
 - initial values
   - KeyRepeat : 2 (30ms)
   - InitialKeyRepeat : 15 (225ms)
+
+## Todo
+
+Implement ctags for rails apps:
+
+```shell
+ctags --tag-relative -Rf.tags --exclude=.git --exclude=tmp --exclude=public --exclude=log --exclude=elm-stuff --exclude=node_modules --languages=ruby .
+```
