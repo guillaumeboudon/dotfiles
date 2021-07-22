@@ -122,7 +122,6 @@ export VISUAL="$EDITOR"
 
 # Clean home directory
 # ------------------------------------------------------------------------------
-export ELM_HOME="$XDG_DATA_HOME/elm"
 # export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 # export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
