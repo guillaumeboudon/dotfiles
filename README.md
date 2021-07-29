@@ -11,6 +11,7 @@
 2. Install Homebrew from https://brew.sh/
 3. Install applications: `brew bundle`
 4. Set dotfiles: `stow home`
+5. Apply `less` key bindings: `lesskey ~/.dotfiles/resources/lesskey`
 
 ## Change key repeat on Mac OSX
 
