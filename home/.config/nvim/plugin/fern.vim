@@ -22,6 +22,7 @@ function! s:init_fern() abort
   nmap <buffer> c <Plug>(fern-action-collapse)
   nmap <buffer> D <Plug>(fern-action-remove)
   nmap <buffer> d <Plug>(fern-action-trash)
+  nmap <buffer> m <Plug>(fern-action-move)
   nmap <buffer> n <Plug>(fern-action-new-path)
   nmap <buffer> r <Plug>(fern-my-expand-or-open)
   nmap <buffer> u <Plug>(fern-action-leave)

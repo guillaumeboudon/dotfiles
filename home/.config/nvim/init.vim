@@ -324,21 +324,21 @@ augroup END
 " > Snippets
 " ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-" Navigation avec le guide <++> (cf. LukeSmithXYZ dotfiles)
-inoremap <Leader><Leader> <Esc>/<++><CR>:noh<CR>"_c4l
-vnoremap <Leader><Leader> <Esc>/<++><CR>:noh<CR>"_c4l
-noremap  <Leader><Leader> <Esc>/<++><CR>:noh<CR>"_c4l
+" " Navigation avec le guide <++> (cf. LukeSmithXYZ dotfiles)
+" inoremap <Leader><Leader> <Esc>/<++><CR>:noh<CR>"_c4l
+" vnoremap <Leader><Leader> <Esc>/<++><CR>:noh<CR>"_c4l
+" noremap  <Leader><Leader> <Esc>/<++><CR>:noh<CR>"_c4l
 
-" Ledger
-autocmd Filetype ledger inoremap ,e <C-R>=strftime("%Y-%m-%d")<CR><Space>*<Space><CR>Dépenses:<++><Space><Space><++><Space>€<CR>Comptes:BP-J-CC<CR><CR><++><Esc>4kA
+" " Ledger
+" autocmd Filetype ledger inoremap ,e <C-R>=strftime("%Y-%m-%d")<CR><Space>*<Space><CR>Dépenses:<++><Space><Space><++><Space>€<CR>Comptes:BP-J-CC<CR><CR><++><Esc>4kA
 
-" Markdown
-autocmd Filetype markdown inoremap ,1 #<Space><CR><CR><++><Esc>2kA
-autocmd Filetype markdown inoremap ,2 ##<Space><CR><CR><++><Esc>2kA
-autocmd Filetype markdown inoremap ,3 ###<Space><CR><CR><++><Esc>2kA
-autocmd Filetype markdown inoremap ,a [](<++>)<++><Esc>F[a
-autocmd Filetype markdown inoremap ,i ![](<++>)<++><Esc>F[a
-autocmd Filetype markdown inoremap ,c ```<CR>```<Esc>2kO
+" " Markdown
+" autocmd Filetype markdown inoremap ,1 #<Space><CR><CR><++><Esc>2kA
+" autocmd Filetype markdown inoremap ,2 ##<Space><CR><CR><++><Esc>2kA
+" autocmd Filetype markdown inoremap ,3 ###<Space><CR><CR><++><Esc>2kA
+" autocmd Filetype markdown inoremap ,a [](<++>)<++><Esc>F[a
+" autocmd Filetype markdown inoremap ,i ![](<++>)<++><Esc>F[a
+" autocmd Filetype markdown inoremap ,c ```<CR>```<Esc>2kO
 
 
 " ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡

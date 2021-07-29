@@ -16,6 +16,7 @@ brew "less"
 brew "neovim"
 brew "nodenv"
 brew "openssl"
+brew "pass"
 brew "postgresql", restart_service: true
 brew "puma/puma/puma-dev"
 brew "rbenv"

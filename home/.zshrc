@@ -132,7 +132,7 @@ export VISUAL="$EDITOR"
 # export GEM_HOME="$XDG_DATA_HOME/gem"
 # export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 # export GEMRC="$XDG_CONFIG_HOME/ruby/.gemrc"
-# export IRBRC="$XDG_CONFIG_HOME/ruby/.irbrc"
+export IRBRC="$XDG_CONFIG_HOME/ruby/irbrc"
 # export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 # export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 # export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
@@ -260,8 +260,17 @@ _force_prepend_to_path "$HOME/.local/bin"
 # Overrides
 # ------------------------------------------------------------------------------
 alias g="git"
+
 alias ls="gls -v  --color=auto --group-directories-first --classify"
-alias ll="gls -vl --color=auto --group-directories-first --classify --human-readable"
+alias ll="ls -l --human-readable"
+
+alias m="cmus"
+alias mn="cmux-remote -n"   # Next
+alias mp="cmux-remote -p"   # Previous
+alias mq="cmus-remote -C q" # Quit cmus
+alias ms="cmus-remote -Q"   # Status
+alias mt="cmus-remote -u"   # Toggle play/pause
+alias mz="cmus-remote -S"   # Shuffle
 
 alias v="nvim"
 alias vimdiff="nvim -d"
