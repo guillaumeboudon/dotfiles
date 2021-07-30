@@ -265,8 +265,8 @@ alias ls="gls -v  --color=auto --group-directories-first --classify"
 alias ll="ls -l --human-readable"
 
 alias m="cmus"
-alias mn="cmux-remote -n"   # Next
-alias mp="cmux-remote -p"   # Previous
+alias mn="cmus-remote -n"   # Next
+alias mp="cmus-remote -p"   # Previous
 alias mq="cmus-remote -C q" # Quit cmus
 alias ms="cmus-remote -Q"   # Status
 alias mt="cmus-remote -u"   # Toggle play/pause
