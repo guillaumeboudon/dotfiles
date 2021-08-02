@@ -4,3 +4,6 @@ let g:vimwiki_list = [{
   \   'ext': 'md',
   \   'nested_syntaxes': {'ruby': 'ruby', 'shell': 'bash'},
   \ }]
+
+nmap <Leader>wt <Plug>VimwikiToggleListItem
+vmap <Leader>wt <Plug>VimwikiToggleListItem

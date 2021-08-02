@@ -26,6 +26,7 @@ function! s:init_fern() abort
   nmap <buffer> n <Plug>(fern-action-new-path)
   nmap <buffer> r <Plug>(fern-my-expand-or-open)
   nmap <buffer> u <Plug>(fern-action-leave)
+  nmap <buffer> y <Plug>(fern-action-copy)
 endfunction
 
 augroup fern_autocmds
