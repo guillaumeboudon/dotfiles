@@ -268,7 +268,8 @@ alias m="cmus"
 alias mn="cmus-remote -n"   # Next
 alias mp="cmus-remote -p"   # Previous
 alias mq="cmus-remote -C q" # Quit cmus
-alias ms="cmus-remote -Q"   # Status
+alias ms="cmus-remote -s"   # Stop
+alias mst="cmus-remote -Q"   # Status
 alias mt="cmus-remote -u"   # Toggle play/pause
 alias mz="cmus-remote -S"   # Shuffle
 
