@@ -22,6 +22,8 @@ noremap ' `
 cnoremap %s %s/\v//g<Left><Left><Left>
 cnoremap %g %g/\v//g<Left><Left><Left>
 
+nnoremap Y y$
+
 " Bindings
 nmap ’ :Buffers<CR>
 nmap - :Fern %:h<CR>
