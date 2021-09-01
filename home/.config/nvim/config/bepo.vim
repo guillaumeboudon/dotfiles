@@ -83,5 +83,5 @@ noremap wr <C-w>l
 noremap wd <C-w>c
 noremap wo <C-w>s
 noremap wp <C-w>o
-noremap w<SPACE> :split<CR>
-noremap w<CR> :vsplit<CR>
+" noremap w<SPACE> :split<CR>
+" noremap w<CR> :vsplit<CR>
