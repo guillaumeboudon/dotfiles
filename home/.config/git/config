@@ -18,7 +18,7 @@
   di = "diff"
   dis = "di --name-status"
   dic = "di --cached"
-  history = "log --graph --color --pretty=format:'%C(cyan)%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %Cred%d%Creset'"
+  history = "log --graph --color --pretty=format:'%C(cyan)%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(auto)%d%Creset'"
   his = "history -n 20"
   plo = "!git pull origin $(git brc)"
   pso = "!git push origin $(git brc)"
