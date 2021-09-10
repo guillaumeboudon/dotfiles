@@ -32,7 +32,7 @@ nmap <Leader><Space> :noh<CR>
 nmap <Leader><Tab> :b#<CR>
 nmap <Leader>b :setlocal wrap!<CR>:setlocal wrap?<CR>
 nmap <Leader>f :Rg<Space>
-nmap <Leader>g :GitGutterToggle<CR>
+nmap <Leader>gb :Git blame<CR>
 nmap <Leader>h :call GoToTag()<CR>
 nmap <Leader>j :Rg <C-R>=expand("<cword>")<CR><CR>
 nmap <Leader>k :Fern . -drawer -toggle<CR>

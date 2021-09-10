@@ -45,7 +45,7 @@ Plug 'w0rp/ale'
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'lmeijvogel/vim-yaml-helper'
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': ['tex', 'plaintex'] }
 Plug 'chrisbra/Colorizer'
@@ -217,21 +217,6 @@ call Base16hi("VimwikiHeader5", g:base16_gui0C, "", g:base16_cterm0C, "", "", ""
 call Base16hi("VimwikiHeader6", g:base16_gui0D, "", g:base16_cterm0D, "", "", "")
 
 let g:lightline = { 'colorscheme': 'base16' }
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Question'],
-  \ 'fg+':     ['fg', 'CursorLine', 'Question', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'NonText'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
 
 " Gruvbox
 " set background=dark
