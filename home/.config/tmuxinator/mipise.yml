@@ -1,0 +1,22 @@
+name: mipise
+root: ~/
+
+windows:
+  - mipise:
+      root: <%= ENV["CODE_ROOT"] %>/mipise/mipise
+      layout: main-vertical
+      panes:
+        - nvim
+        -
+        -
+  - BS:
+      root: <%= ENV["CODE_ROOT"] %>/mipise/BS
+      layout: main-vertical
+      panes:
+        - nvim
+        -
+  - music:
+      layout: main-vertical
+      panes:
+        - cmus
+        -

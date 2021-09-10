@@ -104,6 +104,10 @@ export XDG_DATA_HOME="$HOME/.local/share" # User specific data
 export XDG_CONFIG_HOME="$HOME/.config"    # User specific configuration
 export XDG_CACHE_HOME="$HOME/.cache"      # User specific non-essential data
 
+# Folders
+# ------------------------------------------------------------------------------
+export CODE_ROOT="$HOME/Code"
+
 # Programs
 # ------------------------------------------------------------------------------
 _editor() {
@@ -167,7 +171,7 @@ unsetopt AUTO_CD # Explicitely type `cd` commands
 #   eval "$("$BASE16_SHELL/profile_helper.sh")"
 # _try_source "$XDG_CONFIG_HOME/base16-fzf/bash/base16-onedark.config"
 source "$XDG_DATA_HOME/base16/onedark.sh"
-source "$HOME/Code/guillaumeboudon/base16-scripts/scripts/shell.sh"
+source "$CODE_ROOT/guillaumeboudon/base16-scripts/scripts/shell.sh"
 
 # grep
 # ------------------------------------------------------------------------------
@@ -278,6 +282,7 @@ alias vimdiff="nvim -d"
 alias vi="/usr/local/bin/vim"
 
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+alias mux="tmuxinator"
 
 alias w="watson"
 
