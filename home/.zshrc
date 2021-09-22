@@ -211,9 +211,8 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS=" \
   --preview '(bat {} || tree -C {}) 2>/dev/null | head -200' \
-  --color=bg+:10,bg:0,spinner:6,hl:4,fg:12,header:4,info:3,pointer:6,marker:6,fg+:13,prompt:3,hl+:4 \
+  --color=fg:#$BASE16_04,bg:-1,hl:#$BASE16_0D,fg+:#$BASE16_06,bg+:#$BASE16_01,hl+:#$BASE16_08,info:#$BASE16_0A,prompt:#$BASE16_0E,pointer:#$BASE16_0C,marker:#$BASE16_0C,spinner:#$BASE16_0C,header:#$BASE16_0D \
 "
-
 
 # Ledger
 # ------------------------------------------------------------------------------
