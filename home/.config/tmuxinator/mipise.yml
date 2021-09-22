@@ -4,19 +4,20 @@ root: ~/
 windows:
   - mipise:
       root: <%= ENV["CODE_ROOT"] %>/mipise/mipise
-      layout: main-vertical
       panes:
-        - nvim
+        - v
         -
         -
-  - BS:
+
+  - bs:
       root: <%= ENV["CODE_ROOT"] %>/mipise/BS
-      layout: main-vertical
-      panes:
-        - nvim
-        -
+
+  - souscript_sdk:
+      root: <%= ENV["CODE_ROOT"] %>/mipise/souscript_sdk
+
+  - dotfiles:
+      root: <%= ENV["HOME"] %>/.dotfiles
+
   - music:
-      layout: main-vertical
       panes:
         - cmus
-        -
