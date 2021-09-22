@@ -292,8 +292,14 @@ alias bx="bundle exec"
 alias show='defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder'
 alias hide='defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder'
 alias weather='curl fr.wttr.in/Gallardon'
-alias wth='curl fr.wttr.in/Gallardon?format="%l:+%c+%t"'
-alias ipecho='wget http://ipecho.net/plain -O - -q ; echo'
+alias wth="curl \"fr.wttr.in/Gallardon?format='%l:+%c+%t'\""
+alias my_ip="curl ipecho.net/plain; echo"
+
+my_mac() {
+  networksetup -listallhardwareports
+    # grep Wi-Fi -A 3 | \
+    # awk '/Ethernet Address:/{print $3}'
+}
 
 
 # > FUNCTIONS {{{1
