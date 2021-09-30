@@ -4,6 +4,7 @@ root: ~/
 windows:
   - mipise:
       root: <%= ENV["CODE_ROOT"] %>/mipise/mipise
+      layout: main-vertical
       panes:
         - v
         -
