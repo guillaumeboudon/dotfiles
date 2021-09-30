@@ -1,7 +1,9 @@
 #command
-c   next-tag
-C   prev-tag
+j   next-tag
+J   prev-tag
 t   forw-line
 s   back-line
+c   left-scroll
+r   right-scroll
 T   forw-scroll
 S   back-scroll
