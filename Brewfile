@@ -1,10 +1,13 @@
 # Taps
+tap "heroku/brew"
+tap "homebrew/cask-fonts"
 tap "puma/puma"
 
 # Brews
 brew "bat"
 brew "cmus"
 brew "coreutils"
+brew "curl"
 brew "diff-so-fancy"
 brew "elm"
 brew "emojify"
@@ -13,8 +16,11 @@ brew "fzf"
 brew "git"
 brew "gnupg"
 brew "heroku/brew/heroku"
+brew "imagemagick"
 brew "inetutils"
 brew "less"
+brew "mailcatcher", restart_service: true
+brew "ncdu"
 brew "neovim"
 brew "nodenv"
 brew "openssl"
@@ -52,6 +58,7 @@ cask "font-iosevka"
 cask "inkscape"
 cask "iterm2"
 cask "karabiner-elements"
+cask "mactex-no-gui"
 cask "rectangle"
 cask "slack"
 cask "vlc"
@@ -59,4 +66,4 @@ cask "vlc"
 # Apps from App Store
 mas "CopyClip", id: 595191960
 mas "Pixelmator", id: 407963104
-mas "The Archive Browser", id: 510232205
+# mas "The Archive Browser", id: 510232205
