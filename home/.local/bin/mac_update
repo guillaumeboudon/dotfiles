@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+brew update
+brew upgrade --greedy
+brew cleanup -s
+brew doctor
+brew missing
+mas outdated
+echo “install with: mas upgrade”
+echo “did you think to launch gem update “
