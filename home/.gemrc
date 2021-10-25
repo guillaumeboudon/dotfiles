@@ -7,6 +7,6 @@
 # :disable_default_gem_server: Force specification of gem server host on push
 # <gem_command>: A string containing arguments for the specified gem command
 
-backtrace: true
-gem: "--no-document --suggestions"
-verbose: true
+:backtrace: true
+:verbose: true
+gem: --no-document
