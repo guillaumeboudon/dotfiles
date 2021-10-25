@@ -330,8 +330,6 @@ zmodload zsh/complist
 compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 _comp_options+=(globdots) # Include hidden files
 
-_try_source "$XDG_CONFIG_HOME/tmuxinator/tmuxinator.zsh"
-
 
 # > KEYBINDINGS {{{1
 # ==============================================================================
