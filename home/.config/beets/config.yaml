@@ -1,6 +1,9 @@
 directory: "~/Music/beet"
 plugins: "inline"
 
+import:
+  move: yes
+
 item_fields:
   disc_and_track: u'%02i-%02i' % (disc, track) if disctotal > 1 else u'%02i' % (track)
 
