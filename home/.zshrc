@@ -262,6 +262,9 @@ _force_prepend_to_path "$HOME/.local/bin"
 
 # Overrides
 # ------------------------------------------------------------------------------
+alias c="bundle exec cucumber"
+alias ct="c --tags"
+
 alias g="git"
 
 alias ls="gls -v  --color=auto --group-directories-first --classify"
