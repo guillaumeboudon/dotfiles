@@ -9,7 +9,6 @@ noremap t gj
 noremap <C-t> 10j
 noremap <C-s> 10k
 " noremap R 20l
-noremap <Return> zz
 noremap ' `
 " nnoremap <C-t> <C-W><C-J>
 " nnoremap <C-s> <C-W><C-K>
@@ -19,9 +18,10 @@ noremap ' `
 " Always apply 'very magic'
 " nnoremap /  /\v
 " nnoremap ?  ?\v
-cnoremap %s %s/\v//g<Left><Left><Left>
-cnoremap %g %g/\v//g<Left><Left><Left>
+" cnoremap %s %s/\v//g<Left><Left><Left>
+" cnoremap %g %g/\v//g<Left><Left><Left>
 
+" Make Y behave like D or C
 nnoremap Y y$
 
 " Bindings
@@ -30,6 +30,7 @@ nmap - :Fern %:h<CR>
 nmap <Space> za
 nmap <Leader><Space> :noh<CR>
 nmap <Leader><Tab> :b#<CR>
+nmap <Leader>a :!echo -n % \| pbcopy<CR><CR>
 nmap <Leader>b :setlocal wrap!<CR>:setlocal wrap?<CR>
 nmap <Leader>f :Rg<Space>
 nmap <Leader>gb :Git blame<CR>
@@ -62,9 +63,7 @@ xmap gS  <Plug>VgSurround
 let g:surround_171 = "« \r »"
 let g:surround_187 = "« \r »"
 
-" Divers
-command! W write
-
-" Use Tab as %
-nnoremap <Tab> %
-vnoremap <Tab> %
+" Fix my common mistakes
+command! Q q
+command! W w
+command! Wq wq

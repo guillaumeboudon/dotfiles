@@ -1,1 +1,1 @@
-let g:goyo_width = 50
+let g:goyo_width = 100
