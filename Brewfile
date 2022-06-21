@@ -1,6 +1,7 @@
 # Taps
 tap "heroku/brew"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "puma/puma"
 
 # Brews
@@ -50,8 +51,8 @@ brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
 
 # Casks
+cask "1password6"
 cask "appcleaner"
-cask "atom"
 cask "brave-browser"
 cask "dropbox"
 cask "firefox"
