@@ -7,6 +7,12 @@ call Base16hi("VimwikiHeader3", g:base16_gui0A, "", g:base16_cterm0A, "", "", ""
 call Base16hi("VimwikiHeader4", g:base16_gui0B, "", g:base16_cterm0B, "", "", "")
 call Base16hi("VimwikiHeader5", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
 call Base16hi("VimwikiHeader6", g:base16_gui0D, "", g:base16_cterm0D, "", "", "")
+call Base16hi("htmlH1", g:base16_gui08, "", g:base16_cterm08, "", "", "")
+call Base16hi("htmlH2", g:base16_gui09, "", g:base16_cterm09, "", "", "")
+call Base16hi("htmlH3", g:base16_gui0A, "", g:base16_cterm0A, "", "", "")
+call Base16hi("htmlH4", g:base16_gui0B, "", g:base16_cterm0B, "", "", "")
+call Base16hi("htmlH5", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
+call Base16hi("htmlH6", g:base16_gui0D, "", g:base16_cterm0D, "", "", "")
 
 let g:lightline = { 'colorscheme': 'base16' }
 

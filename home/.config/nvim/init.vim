@@ -96,7 +96,7 @@ autocmd VimResized * :wincmd =
 " autocmd FileType qf nmap <buffer> q :q<cr>
 " autocmd FileType qf setlocal number nolist
 
-" autocmd FileType markdown setlocal spell spelllang=fr
+autocmd FileType markdown setlocal spelllang=fr,en
 function! FzfSpellSink(word)
   exe 'normal! "_ciw'.a:word
 endfunction

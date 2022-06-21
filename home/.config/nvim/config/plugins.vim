@@ -9,7 +9,8 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " > General enhancements
 " ------------------------------------------------------------------------------
-Plug '/usr/local/opt/fzf'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'qpkorr/vim-bufkill'
 " Plug 'ryanoasis/vim-devicons'
