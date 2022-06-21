@@ -59,7 +59,7 @@ _try_source() {
 # Helpers
 # ------------------------------------------------------------------------------
 _try_source_plugin() {
-  _try_source /usr/local/share/$1/$1.zsh && return 0
+  _try_source $(brew --prefix)/share/$1/$1.zsh && return 0
   _try_source /usr/share/zsh/plugins/$1/$1.zsh && return 0
   echo "$1 not installed" >&2
   return 1
@@ -206,7 +206,6 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep"
 
 # FZF
 # ------------------------------------------------------------------------------
-_try_source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,elm-stuff}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS=" \
@@ -231,7 +230,7 @@ alias ledp="ledger -f ~/.config/ledger/main.ledger ${LEDGER_ARGS} --pager=less"
 
 # Rbenv & Nodenv
 # ------------------------------------------------
-_has rbenv  && eval "$(rbenv init -)"
+# _has rbenv  && eval "$(rbenv init -)"
 _has nodenv && eval "$(nodenv init -)"
 
 # watson
@@ -247,13 +246,13 @@ alias ydv="yd --format bestvideo+bestaudio --merge-output-format mkv --output \"
 # z
 # ------------------------------------------------
 export _Z_DATA="$XDG_DATA_HOME/z"
-_try_source /usr/local/etc/profile.d/z.sh
+_try_source $(brew --prefix)/etc/profile.d/z.sh
 
 
 # > PATH {{{1
 # ==============================================================================
 
-_force_prepend_to_path "/usr/local/opt/coreutils/libexec/gnubin"
+_force_prepend_to_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 _force_prepend_to_path "$HOME/.local/bin"
 
 
@@ -281,7 +280,7 @@ alias mz="cmus-remote -S"   # Shuffle
 
 alias v="nvim"
 alias vimdiff="nvim -d"
-alias vi="/usr/local/bin/vim"
+alias vi="$(brew --prefix)/bin/vim"
 
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias mux="tmuxinator"
@@ -449,3 +448,6 @@ _try_source "$XDG_CONFIG_HOME/zsh/local.zsh"
 
 # Return value
 true
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
