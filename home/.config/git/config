@@ -19,7 +19,7 @@
   di = "diff"
   dis = "di --name-status"
   dic = "di --cached"
-  history = "log --graph --color --pretty=format:'%C(cyan)%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(auto)%d%Creset'"
+  history = "log --graph --color --pretty=format:'%C(cyan)%h%Creset - %s %Cgreen(%cd) %C(bold blue)%an%Creset %C(auto)%d%Creset'"
   his = "history -n 20"
   m = "merge"
   mo = "!f() { git merge origin/$1; }; f"
