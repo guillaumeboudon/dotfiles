@@ -14,9 +14,16 @@ def report
     res = `gh pr view #{pr} --json title,url,files,isDraft,createdAt`
     data = JSON.parse(res)
     changes = data["files"].count
+    created_at = Date.parse(data["createdAt"])
+
+    # break if created_at < Date.new(2022, 4, 25)
+    # next if %w[4679 4678 4674 4673 4672 4683 4671 4669 4680 4469 4684 4677 4686 4685].include?(pr)
+    # next if changes >= 4
+    next if data["isDraft"]
     # next if changes < 4 || changes > 10
-    date = Date.parse(data["createdAt"])
-    puts "| #{data["isDraft"] ? "DRAFT" : "     "} | #{pr} | #{changes.to_s.ljust(6)} | #{date.strftime("%d/%m/%Y")} | #{data["url"]} | #{data["title"][0, 70].ljust(70)} |"
+
+    # puts `pr_summary #{pr}`
+    puts "| #{data["isDraft"] ? "DRAFT" : "     "} | #{pr} | #{changes.to_s.ljust(6)} | #{created_at.strftime("%d/%m/%Y")} | #{data["url"]} | #{data["title"][0, 70].ljust(70)} |"
   end
   puts "+-------+------+--------+------------+--------------------------------------------+------------------------------------------------------------------------+"
 end
