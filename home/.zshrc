@@ -106,7 +106,7 @@ export XDG_CACHE_HOME="$HOME/.cache"      # User specific non-essential data
 
 # Folders
 # ------------------------------------------------------------------------------
-export CODE_ROOT="$HOME/Code"
+export CODE_ROOT="$HOME/code"
 
 # Programs
 # ------------------------------------------------------------------------------
@@ -212,6 +212,7 @@ export FZF_DEFAULT_OPTS=" \
   --preview '(bat {} || tree -C {}) 2>/dev/null | head -200' \
   --color=fg:#$BASE16_04,bg:-1,hl:#$BASE16_0D,fg+:#$BASE16_06,bg+:#$BASE16_01,hl+:#$BASE16_08,info:#$BASE16_0A,prompt:#$BASE16_0E,pointer:#$BASE16_0C,marker:#$BASE16_0C,spinner:#$BASE16_0C,header:#$BASE16_0D \
 "
+_try_source ~/.fzf.zsh
 
 # Ledger
 # ------------------------------------------------------------------------------
@@ -230,8 +231,9 @@ alias ledp="ledger -f ~/.config/ledger/main.ledger ${LEDGER_ARGS} --pager=less"
 
 # Rbenv & Nodenv
 # ------------------------------------------------
-# _has rbenv  && eval "$(rbenv init -)"
 _has nodenv && eval "$(nodenv init -)"
+_has pyenv  && eval "$(pyenv init -)"
+_has rbenv  && eval "$(rbenv init -)"
 
 # watson
 # ------------------------------------------------
@@ -242,6 +244,8 @@ export WATSON_DIR="$XDG_CONFIG_HOME/watson"
 alias yd="youtube-dl --add-metadata --continue --ignore-errors"
 alias yda="yd --extract-audio --audio-format mp3 --output \"~/Downloads/youtube-dl/audio/%(channel)s/%(title)s.%(ext)s\""
 alias ydv="yd --format bestvideo+bestaudio --merge-output-format mkv --output \"~/Downloads/youtube-dl/video/%(channel)s/%(title)s.%(ext)s\""
+ydt() { yda "https://www.youtube.com/watch?v=$1" }
+ydp() { yda "https://www.youtube.com/playlist?list=$1" }
 
 # z
 # ------------------------------------------------
@@ -271,7 +275,7 @@ alias ll="ls -l --human-readable"
 
 alias m="cmus"
 alias mn="cmus-remote -n"   # Next
-alias mp="cmus-remote -p"   # Previous
+alias mp="cmus-remote -r"   # Previous
 alias mq="cmus-remote -C q" # Quit cmus
 alias ms="cmus-remote -s"   # Stop
 alias mst="cmus-remote -Q"   # Status
@@ -448,6 +452,3 @@ _try_source "$XDG_CONFIG_HOME/zsh/local.zsh"
 
 # Return value
 true
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
