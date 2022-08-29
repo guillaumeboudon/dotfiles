@@ -18,3 +18,6 @@ Thumbs.db
 .irb_history
 irb_history
 .byebug_history
+
+# python
+.python-version
