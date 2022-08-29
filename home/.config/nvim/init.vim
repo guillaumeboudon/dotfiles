@@ -68,6 +68,9 @@ autocmd Filetype todo     setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype ruby     setlocal colorcolumn=80,100
 
+" Highlighting selection on yank
+autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+
 augroup END
 
 " ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
