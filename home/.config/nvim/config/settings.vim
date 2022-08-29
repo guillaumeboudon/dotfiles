@@ -78,3 +78,8 @@ set completeopt=longest,menuone,preview " Paramètres de la complétion
 set complete+=kspell           " Ajoute le dictionnaire à la complétion lorsque spell est activé
 set wildmenu                   " Enable command-line completion enhanced mode
 set wildmode=full              " Command-line completion settings
+
+" > Disable some language providers
+" ------------------------------------------------------------------------------
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
