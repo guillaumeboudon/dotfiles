@@ -15,7 +15,7 @@
     ```
 3. Install Homebrew from https://brew.sh/
 4. Install applications: `brew bundle`
-5. Set dotfiles: `stow home`
+5. Set dotfiles: `stow --no-folding home`
 6. Install z: `mkdir -p ~/.local/share && touch ~/.local/share/z`
 7. Install ruby:
     ```shell
