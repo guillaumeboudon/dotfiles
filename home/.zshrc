@@ -270,8 +270,10 @@ alias ct="c --tags"
 
 alias g="git"
 
-alias ls="gls -v  --color=auto --group-directories-first --classify"
-alias ll="ls -l --human-readable"
+# alias ls="gls -v  --color=auto --group-directories-first --classify"
+# alias ll="ls -l --human-readable"
+alias ls="exa --group-directories-first --classify"
+alias ll="ls --long"
 
 alias m="cmus"
 alias mn="cmus-remote -n"   # Next
