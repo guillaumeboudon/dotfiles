@@ -206,7 +206,7 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep"
 
 # FZF
 # ------------------------------------------------------------------------------
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,elm-stuff}/*" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden --follow --glob "!{.git,node_modules,elm-stuff}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS=" \
   --preview '(bat {} || tree -C {}) 2>/dev/null | head -200' \
@@ -225,9 +225,8 @@ _try_source ~/.fzf.zsh
 # --wide          Cause the default register report to assume a wide screen.
 # --flat          Do not shouw accounts in a hierarchical tree
 # --pager=less"
-LEDGER_ARGS="--pedantic --check-payees" #--price-db prices.txt --market --explicit"
-alias led="ledger -f ~/.config/ledger/main.ledger ${LEDGER_ARGS}"
-alias ledp="ledger -f ~/.config/ledger/main.ledger ${LEDGER_ARGS} --pager=less"
+LEDGER_ARGS="--strict" #--price-db prices.txt --market --explicit"
+alias led="hledger -f ~/Dropbox/ledger/current.ledger ${LEDGER_ARGS}"
 
 # Rbenv & Nodenv
 # ------------------------------------------------
@@ -258,7 +257,7 @@ _try_source $(brew --prefix)/etc/profile.d/z.sh
 
 _force_prepend_to_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 _force_prepend_to_path "$HOME/.local/bin"
-
+_force_prepend_to_path "$HOME/.yarn/bin"
 
 # > ALIASES {{{1
 # ==============================================================================
@@ -267,6 +266,7 @@ _force_prepend_to_path "$HOME/.local/bin"
 # ------------------------------------------------------------------------------
 alias c="bundle exec cucumber"
 alias ct="c --tags"
+alias cr="c --profile rerun"
 
 alias g="git"
 
