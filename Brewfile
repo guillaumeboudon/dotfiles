@@ -26,6 +26,7 @@ brew "lf"
 brew "mailcatcher", restart_service: true
 brew "ncdu"
 brew "neovim"
+brew "nmap"
 brew "nodenv"
 brew "openssl"
 brew "pass"
