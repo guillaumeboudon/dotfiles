@@ -241,7 +241,7 @@ export WATSON_DIR="$XDG_CONFIG_HOME/watson"
 
 # youtube-dl
 # ------------------------------------------------
-alias yd="youtube-dl --add-metadata --continue --ignore-errors"
+alias yd="yt-dlp --add-metadata --continue --ignore-errors"
 alias yda="yd --extract-audio --audio-format mp3 --output \"~/Downloads/youtube-dl/audio/%(channel)s/%(title)s.%(ext)s\""
 alias ydv="yd --format bestvideo+bestaudio --merge-output-format mkv --output \"~/Downloads/youtube-dl/video/%(channel)s/%(title)s.%(ext)s\""
 ydt() { yda "https://www.youtube.com/watch?v=$1" }
