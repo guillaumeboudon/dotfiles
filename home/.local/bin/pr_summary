@@ -19,7 +19,7 @@ def summary(pr_id)
   summary += " origin/#{data["headRefName"]}"
   summary += " #{github_urls.join(" & ")}" if github_urls.any?
 
-  print summary
+  $stdout.puts(summary)
 end
 
 summary(ARGV[0])
