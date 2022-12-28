@@ -6,3 +6,10 @@ priority -60
 snippet date "YYYY-MM-DD" w
 `!v strftime("%Y-%m-%d")`
 endsnippet
+
+snippet "pr(\d+)" "Github PR summary" r
+`!p
+import subprocess
+snip.rv = subprocess.run(["pr_summary", match.group(1)], capture_output = True).stdout.decode().rstrip()
+`
+endsnippet

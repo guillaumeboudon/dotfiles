@@ -4,5 +4,8 @@ let g:ale_sign_warning = 'Δ'
 let g:ale_sign_error = ''
 
 let g:ale_linters = {
-  \   "ruby": ["standardrb"],
+  \   "elixir": ["credo"],
+  \   "elm": ["make"],
+  \   "haml": ["hamllint"],
+  \   "ruby": ["rubocop"],
   \ }

@@ -27,6 +27,9 @@ let g:ledger_default_commodity = "€"
 let g:ledger_commodity_before = 0
 let g:ledger_commodity_sep = " "
 let g:ledger_date_format = "%Y-%m-%d"
+" let g:ledger_align_at = 78
+" let g:ledger_align_commodity = 1
+"
 " au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 autocmd FileType ledger noremap { ?^\d<CR>
 
@@ -66,7 +69,6 @@ autocmd BufNewFile,BufRead .gemrc    set ft=yaml
 autocmd Filetype elm      setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype todo     setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype ruby     setlocal colorcolumn=80,100
 
 " Highlighting selection on yank
 autocmd TextYankPost * silent! lua vim.highlight.on_yank()
@@ -81,7 +83,7 @@ let g:tex_flavor = "latex"
 
 function! GoToTag ()
   let l:cword = expand('<cword>')
-  let l:matches = system("cat .git/tags | rg -w '^'" . l:cword . "'\t' | wc -l | awk '{print $1}'")
+  let l:matches = system("cat .tags | rg -w '^'" . l:cword . "'\t' | wc -l | awk '{print $1}'")
   if l:matches =~ "0"
     exe "Rg" l:cword
   elseif l:matches =~ "1"

@@ -14,8 +14,6 @@ call Base16hi("htmlH4", g:base16_gui0B, "", g:base16_cterm0B, "", "", "")
 call Base16hi("htmlH5", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
 call Base16hi("htmlH6", g:base16_gui0D, "", g:base16_cterm0D, "", "", "")
 
-let g:lightline = { 'colorscheme': 'base16' }
-
 " Gruvbox
 " set background=dark
 set termguicolors
@@ -28,7 +26,7 @@ set termguicolors
 
 " Make trailing spaces very visible
 highlight ExtraWhitespace ctermfg=235 ctermbg=172 guifg=#282828 guibg=#d79921
-let extraWhiteSpaceBlacklist = ['Mundo']
+let extraWhiteSpaceBlacklist = ['Mundo', '']
 match ExtraWhiteSpace /\s\+$/
 autocmd BufWinEnter * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+$/
 autocmd InsertEnter * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+\%#\@<!$/
