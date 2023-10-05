@@ -9,6 +9,7 @@
 " > https://github.com/guillaumeboudon/dotfiles
 
 
+source ~/.config/nvim/before/*.vim
 source ~/.config/nvim/config/plugins.vim
 source ~/.config/nvim/config/settings.vim
 source ~/.config/nvim/config/colors.vim
