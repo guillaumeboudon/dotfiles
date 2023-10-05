@@ -272,7 +272,7 @@ alias g="git"
 
 # alias ls="gls -v  --color=auto --group-directories-first --classify"
 # alias ll="ls -l --human-readable"
-alias ls="exa --group-directories-first --classify"
+alias ls="eza --group-directories-first --classify"
 alias ll="ls --long"
 
 alias m="cmus"
