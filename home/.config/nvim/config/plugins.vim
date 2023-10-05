@@ -9,6 +9,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " > General enhancements
 " ------------------------------------------------------------------------------
+Plug 'fcpg/vim-waikiki'
 Plug 'godlygeek/tabular'
 Plug 'google/vim-searchindex'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -23,7 +24,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vimwiki/vimwiki'
 Plug 'w0rp/ale'
 
 " > Syntax

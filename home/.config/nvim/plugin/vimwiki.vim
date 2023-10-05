@@ -2,10 +2,11 @@ let g:vimwiki_list = [{
   \   'path': '~/Dropbox/wiki',
   \   'syntax': 'markdown',
   \   'ext': 'md',
-  \   'nested_syntaxes': {'ruby': 'ruby', 'shell': 'bash'},
+  \   'nested_syntaxes': {'mmd': 'mermaid', 'rb': 'ruby', 'shell': 'bash'},
   \ }]
 
 let g:vimwiki_global_ext = 0
+let g:vimwiki_conceallevel = 0
 
 let g:vimwiki_key_mappings = {}
 let g:vimwiki_key_mappings.table_mappings = 0

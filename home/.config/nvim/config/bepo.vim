@@ -4,15 +4,15 @@
 
 " {W} -> [É]
 " ——————————
-" On remappe W sur É :
-noremap é w
-noremap É W
-" Corollaire: on remplace les text objects aw, aW, iw et iW
-" pour effacer/remplacer un mot quand on n’est pas au début (daé / laé).
-onoremap aé aw
-onoremap aÉ aW
-onoremap ié iw
-onoremap iÉ iW
+" " On remappe W sur É :
+" noremap é w
+" noremap É W
+" " Corollaire: on remplace les text objects aw, aW, iw et iW
+" " pour effacer/remplacer un mot quand on n’est pas au début (daé / laé).
+" onoremap aé aw
+" onoremap aÉ aW
+" onoremap ié iw
+" onoremap iÉ iW
 " Pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
 noremap w <C-w>
 noremap W <C-w><C-w>

@@ -1,6 +1,6 @@
 " Mappe <Leader> et <LocalLeader>
 let mapleader = ","
-let maplocalleader = ";"
+let maplocalleader = "é"
 
 " Mouvements de pages
 noremap s gk
@@ -44,6 +44,9 @@ nmap <Leader>s :setlocal spell!<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>u :MundoToggle<CR>
 nmap <Leader>z :setlocal foldenable!<CR>:setlocal foldenable?<CR>
+
+nmap <LocalLeader>w :e ~/Dropbox/wiki/index.md<CR>
+nmap <LocalLeader>n :e ~/Dropbox/wiki/quicknote.md<CR>
 
 " vim-surround
 let g:surround_no_mappings=1
