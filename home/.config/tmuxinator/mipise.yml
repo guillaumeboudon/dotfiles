@@ -10,11 +10,15 @@ windows:
         -
         -
 
-  - bs:
-      root: <%= ENV["CODE_ROOT"] %>/mipise/BS
+  - mps:
+      root: <%= ENV["CODE_ROOT"] %>/mipise/mps
+      layout: main-vertical
+      panes:
+        - v
+        -
 
-  - souscript_sdk:
-      root: <%= ENV["CODE_ROOT"] %>/mipise/souscript_sdk
+  - mipise_tools:
+      root: <%= ENV["CODE_ROOT"] %>/mipise/mipise_tools
 
   - dotfiles:
       root: <%= ENV["HOME"] %>/.dotfiles
