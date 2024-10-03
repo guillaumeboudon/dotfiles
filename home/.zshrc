@@ -206,7 +206,7 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep"
 
 # FZF
 # ------------------------------------------------------------------------------
-export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden --follow --glob "!{.git,node_modules,elm-stuff}/*" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!{.git,node_modules,elm-stuff,deps,_build}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS=" \
   --preview '(bat {} || tree -C {}) 2>/dev/null | head -200' \
@@ -242,7 +242,7 @@ export WATSON_DIR="$XDG_CONFIG_HOME/watson"
 # ------------------------------------------------
 alias yd="yt-dlp --add-metadata --continue --ignore-errors"
 alias yda="yd --extract-audio --audio-format mp3 --output \"~/Downloads/youtube-dl/audio/%(channel)s/%(title)s.%(ext)s\""
-alias ydv="yd --format bestvideo+bestaudio --merge-output-format mkv --output \"~/Downloads/youtube-dl/video/%(channel)s/%(title)s.%(ext)s\""
+alias ydv="yd --format \"bv[height<=480]+ba\" --merge-output-format mkv --output \"~/Downloads/youtube-dl/video/%(channel)s/%(title)s.%(ext)s\""
 ydt() { yda "https://www.youtube.com/watch?v=$1" }
 ydp() { yda "https://www.youtube.com/playlist?list=$1" }
 
@@ -409,7 +409,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Autosuggestions
 # ------------------------------------------------
 _try_source_plugin zsh-autosuggestions
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 # Syntax highlighting
 # ------------------------------------------------
@@ -420,9 +419,6 @@ _try_source_plugin zsh-syntax-highlighting
 _try_source_plugin zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black,bold'
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=yellow,fg=white,bold'
-export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=true
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 
 # > PROMPT {{{1
