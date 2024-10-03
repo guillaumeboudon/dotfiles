@@ -1,40 +1,8 @@
 {
   "title": "My custom keyboard bindings",
   "rules": [{
-      "description": "Caps Lock to Escape on single press, Left Control on press and hold.",
-      "manipulators": [{
-        "type": "basic",
-        "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] } },
-        "to": [ { "key_code": "left_control" } ],
-        "to_if_alone": [ { "key_code": "escape" } ]
-      }]
-    }, {
-    "description": "Post \"Escape\" if \"Control\" is tapped, \"Control\" if held ; \"Control\"+\"Backspace\" to \"Delete\"",
+    "description": "\"Option\" + [hjkl] to arrow keys",
     "manipulators": [{
-      "type": "basic",
-      "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["control"], "optional": ["caps_lock", "command", "option", "shift", "fn"] } },
-      "to": [{ "key_code": "delete_forward" }]
-    }, {
-      "type": "basic",
-      "from": { "key_code": "left_control", "modifiers": { "optional": ["any"] } },
-      "to": [{ "key_code": "left_control", "lazy": true }],
-      "to_if_alone": [{ "key_code": "escape" }]
-    }]
-  }, {
-    "description": "Hyper/Escape Mode",
-    "manipulators": [{
-      "type": "basic",
-     "from": { "key_code": "right_option", "modifiers": { "optional": ["any"] } },
-      "to": [{ "key_code": "right_shift", "modifiers": ["right_command", "right_control", "right_option"] }],
-      "to_if_alone": [{ "key_code": "escape" }]
-    }]
-  }, {
-    "description": "\"Option\"+[hjkl] to arrow keys ; \"Option\"+\"Backspace\" to \"Delete\"",
-    "manipulators": [{
-      "type": "basic",
-      "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["option"], "optional": ["caps_lock", "command", "control", "shift", "fn"] } },
-      "to": [{ "key_code": "delete_forward" }]
-    }, {
       "type": "basic",
       "from": { "key_code": "j", "modifiers": { "mandatory": ["option"], "optional": ["caps_lock", "control", "shift", "fn"] } },
       "to": [{ "key_code": "down_arrow" }]
@@ -50,6 +18,29 @@
       "type": "basic",
       "from": { "key_code": "l", "modifiers": { "mandatory": ["option"], "optional": ["caps_lock", "control", "shift", "fn"] } },
       "to": [{ "key_code": "right_arrow" }]
+    }]
+  }, {
+    "description": "\"Caps Lock\" to \"Escape\" if tapped, \"Left Control\" if held",
+    "manipulators": [{
+      "type": "basic",
+      "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] } },
+      "to": [ { "key_code": "left_control" } ],
+      "to_if_alone": [ { "key_code": "escape" } ]
+    }]
+  }, {
+    "description": "\"Control\" + \"Backspace\" to \"Delete\"",
+    "manipulators": [{
+      "type": "basic",
+      "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["control"], "optional": ["caps_lock", "command", "option", "shift", "fn"] } },
+      "to": [{ "key_code": "delete_forward" }]
+    }]
+  }, {
+    "description": "Hyper/Escape Mode",
+    "manipulators": [{
+      "type": "basic",
+     "from": { "key_code": "right_option", "modifiers": { "optional": ["any"] } },
+      "to": [{ "key_code": "right_shift", "modifiers": ["right_command", "right_control", "right_option"] }],
+      "to_if_alone": [{ "key_code": "escape" }]
     }]
   }, {
     "description": "Shifts trainer",
