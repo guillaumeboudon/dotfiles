@@ -28,10 +28,10 @@
       "to_if_alone": [ { "key_code": "escape" } ]
     }]
   }, {
-    "description": "\"Control\" + \"Backspace\" to \"Delete\"",
+    "description": "\"Option\" + \"Backspace\" to \"Delete\"",
     "manipulators": [{
       "type": "basic",
-      "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["control"], "optional": ["caps_lock", "command", "option", "shift", "fn"] } },
+      "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["option"], "optional": ["caps_lock", "command", "control", "shift", "fn"] } },
       "to": [{ "key_code": "delete_forward" }]
     }]
   }, {
