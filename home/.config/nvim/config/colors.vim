@@ -9,6 +9,8 @@ call Base16hi("htmlH4", g:base16_gui0B, "", g:base16_cterm0B, "", "", "")
 call Base16hi("htmlH5", g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
 call Base16hi("htmlH6", g:base16_gui0D, "", g:base16_cterm0D, "", "", "")
 
+hi link HtmlStrike Comment
+
 " Gruvbox
 " set background=dark
 set termguicolors

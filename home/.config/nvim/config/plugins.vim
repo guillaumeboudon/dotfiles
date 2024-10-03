@@ -20,11 +20,12 @@ Plug 'lambdalisue/fern.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'sirver/UltiSnips'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " > Syntax
 " ------------------------------------------------------------------------------

@@ -65,7 +65,7 @@ augroup my_autocommands
 " Reset all autocommands
 autocmd!
 
-autocmd BufNewFile,BufRead .gemrc    set ft=yaml
+autocmd BufNewFile,BufRead .gemrc set filetype=yaml
 
 autocmd Filetype elm      setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype todo     setlocal tabstop=4 softtabstop=4 shiftwidth=4
@@ -113,7 +113,7 @@ endfunction
 nnoremap z= :call FzfSpell()<CR>
 
 
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+map <Leader>m :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
