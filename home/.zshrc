@@ -170,7 +170,9 @@ unsetopt AUTO_CD # Explicitely type `cd` commands
 #   [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
 #   eval "$("$BASE16_SHELL/profile_helper.sh")"
 # _try_source "$XDG_CONFIG_HOME/base16-fzf/bash/base16-onedark.config"
+
 source "$XDG_DATA_HOME/base16/onedark.sh"
+
 source "$CODE_ROOT/guillaumeboudon/base16-scripts/scripts/shell.sh"
 
 # grep
@@ -240,11 +242,12 @@ export WATSON_DIR="$XDG_CONFIG_HOME/watson"
 
 # youtube-dl
 # ------------------------------------------------
-alias yd="yt-dlp --add-metadata --continue --ignore-errors"
-alias yda="yd --extract-audio --audio-format mp3 --output \"~/Downloads/youtube-dl/audio/%(channel)s/%(title)s.%(ext)s\""
+alias yd="yt-dlp --no-add-metadata --continue --ignore-errors"
+alias yda="yt-dlp --extract-audio --audio-format m4a --audio-quality 0 --add-metadata --output \"~/Music/import/%(channel)s/%(album)s/%(playlist_index)s - %(track)s.%(ext)s\""
 alias ydv="yd --format \"bv[height<=480]+ba\" --merge-output-format mkv --output \"~/Downloads/youtube-dl/video/%(channel)s/%(title)s.%(ext)s\""
 ydt() { yda "https://www.youtube.com/watch?v=$1" }
 ydp() { yda "https://www.youtube.com/playlist?list=$1" }
+
 
 # z
 # ------------------------------------------------
@@ -255,9 +258,10 @@ _try_source $(brew --prefix)/etc/profile.d/z.sh
 # > PATH {{{1
 # ==============================================================================
 
-_force_prepend_to_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
+# _force_prepend_to_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 _force_prepend_to_path "$HOME/.local/bin"
 _force_prepend_to_path "$HOME/.yarn/bin"
+_prepend_to_path "/opt/homebrew/opt/postgresql@17/bin"
 
 # > ALIASES {{{1
 # ==============================================================================
@@ -445,6 +449,8 @@ eval "$(starship init zsh)"
 # ==============================================================================
 
 _try_source "$XDG_CONFIG_HOME/zsh/local.zsh"
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # }}}
 
