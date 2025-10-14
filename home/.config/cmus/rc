@@ -1,10 +1,21 @@
+# Keys mappings ================================================================
+
 bind -f common j toggle show_remaining_time
 bind -f common k toggle shuffle
 bind -f common s win-up
 bind -f common t win-down
 bind -f common u shell cmus_update
+bind -f common space player-pause
+bind -f common c win-toggle
 
-# Custom theme
+
+# Settings =====================================================================
+
+# Do not ignore "The " in front of artist name for alphabetical sorting
+set smart_artist_sort=false
+
+# Custom theme =================================================================
+
 # set color_cmdline_attr=default
 # set color_cmdline_bg=default
 # set color_cmdline_fg=default

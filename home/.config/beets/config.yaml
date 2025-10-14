@@ -1,5 +1,5 @@
 directory: "~/Music/beet"
-plugins: "inline"
+plugins: "inline embedart fetchart"
 
 import:
   move: yes
@@ -9,4 +9,10 @@ item_fields:
   disc_and_track: u'%02i-%02i' % (disc, track) if disctotal > 1 else u'%02i' % (track)
 
 paths:
-  default: "$artist/$album/$disc_and_track - $title"
+  default: "$albumartist/$album/$disc_and_track - $title"
+
+fetchart:
+  auto: yes
+
+embedart:
+  auto: yes
