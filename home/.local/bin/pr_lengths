@@ -4,31 +4,34 @@ require "json"
 require "date"
 
 def report
-  pr_list = `gh pr list -L 1000`
+  pr_list = `gh pr list -L 100`
+  # pr_list = `gh pr list -s merged -L 100`
   prs = pr_list.lines.map { |line| line[/^\d+/] }
   counter = 0
 
-  puts "+-------+------+--------+------------+--------------------------------------------+------------------------------------------------------------------------+"
-  puts "| Draft | ID   | Modifs | Date       | URL                                        | Titre                                                                  |"
-  puts "+-------+------+--------+------------+--------------------------------------------+------------------------------------------------------------------------+"
+  puts "+-------+------+--------+------------+--------------------------------------------+--------------------+------------------------------------------------------------------------+"
+  puts "| Draft | ID   | Modifs | Date       | URL                                        | Auteur             | Titre                                                                  |"
+  puts "+-------+------+--------+------------+--------------------------------------------+--------------------+------------------------------------------------------------------------+"
   prs.each do |pr|
-    res = `gh pr view #{pr} --json title,url,files,isDraft,createdAt`
+    res = `gh pr view #{pr} --json title,url,files,isDraft,createdAt,author,labels`
     data = JSON.parse(res)
     changes = data["files"].count.to_s
     changes = "+100" if changes == "100"
     created_at = Date.parse(data["createdAt"])
+    labels = data["labels"].map { _1["name"] }.join(", ")
 
-    # break if created_at < Date.new(2022, 4, 25)
+    break if created_at < Date.new(2025, 7)
     # next unless %w[4862 4982 5001 4580 4878 4859 4483].include?(pr)
-    # next if changes >= 4
-    next if data["isDraft"]
+    next if data["files"].count >= 6
+    # next if data["isDraft"]
     # next if changes > 4
+    next if labels.include?("UX/UI")
 
     # puts `pr_summary #{pr}`
-    puts "| #{data["isDraft"] ? "DRAFT" : "     "} | #{pr} | #{changes.rjust(6)} | #{created_at.strftime("%d/%m/%Y")} | #{data["url"]} | #{data["title"][0, 70].ljust(70)} |"
+    puts "| #{data["isDraft"] ? "DRAFT" : "     "} | #{pr} | #{changes.rjust(6)} | #{Date.parse(data["createdAt"]).strftime("%d/%m/%Y")} | #{data["url"]} | #{data["author"]["login"].ljust(18)} | #{data["title"][0, 70].ljust(70)} | #{labels}"
     counter += 1
   end
-  puts "+-------+------+--------+------------+--------------------------------------------+------------------------------------------------------------------------+"
+  puts "+-------+------+--------+------------+--------------------------------------------+--------------------+------------------------------------------------------------------------+"
   puts "=> Total de #{counter} PR"
 end
 
