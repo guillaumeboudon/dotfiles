@@ -1,5 +1,5 @@
 let g:vimwiki_list = [{
-  \   'path': '~/Dropbox/wiki',
+  \   'path': '~/kDrive/Documents/Wiki',
   \   'syntax': 'markdown',
   \   'ext': 'md',
   \   'nested_syntaxes': {'mmd': 'mermaid', 'rb': 'ruby', 'shell': 'bash'},

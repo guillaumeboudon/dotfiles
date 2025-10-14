@@ -45,8 +45,8 @@ nmap <Leader>t :Files<CR>
 nmap <Leader>u :MundoToggle<CR>
 nmap <Leader>z :setlocal foldenable!<CR>:setlocal foldenable?<CR>
 
-nmap <LocalLeader>w :e ~/Dropbox/wiki/index.md<CR>
-nmap <LocalLeader>n :e ~/Dropbox/wiki/quicknote.md<CR>
+nmap <LocalLeader>w :e ~/kDrive/Documents/Wiki/index.md<CR>
+nmap <LocalLeader>n :e ~/kDrive/Documents/Wiki/quicknote.md<CR>
 
 " vim-surround
 let g:surround_no_mappings=1

@@ -29,7 +29,7 @@ Plug 'dense-analysis/ale'
 
 " > Syntax
 " ------------------------------------------------------------------------------
-Plug 'lmeijvogel/vim-yaml-helper', { 'for': 'yaml' }
+" Plug 'lmeijvogel/vim-yaml-helper', { 'for': 'yaml' }
 Plug 'elmcast/elm-vim'
 Plug 'ledger/vim-ledger'
 Plug 'sheerun/vim-polyglot'
