@@ -1,7 +1,21 @@
+" ==============================================================================
+" > Mundo (undo tree visualizer) configuration
+" ==============================================================================
+
+" > Layout ---------------------------------------------------------------------
+
+" Width of the undo tree window
 let g:mundo_width = 80
+
+" Height of the diff preview window
 let g:mundo_preview_height = 25
+
 " let g:mundo_preview_bottom = 1
 " let g:mundo_verbose_graph = 0
+
+" > Key mappings ---------------------------------------------------------------
+
+" Custom mappings for Mundo window (adapted for BÉPO layout)
 let g:mundo_mappings = {
   \ '<CR>': 'preview',
   \ 'o': 'preview',

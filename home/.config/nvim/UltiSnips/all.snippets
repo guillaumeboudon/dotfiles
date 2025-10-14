@@ -1,12 +1,20 @@
-priority -60
-
-# Dates
+# ==============================================================================
+# > Global snippets (all filetypes)
 # ==============================================================================
 
+priority -60
+
+# > Dates ----------------------------------------------------------------------
+
+# Insert current date in YYYY-MM-DD format
 snippet date "YYYY-MM-DD" w
 `!v strftime("%Y-%m-%d")`
 endsnippet
 
+# > GitHub PR summary ----------------------------------------------------------
+
+# Insert PR summary by calling external pr_summary script
+# Usage: pr123 will fetch summary for PR #123
 snippet "pr(\d+)" "Github PR summary" r
 `!p
 import subprocess

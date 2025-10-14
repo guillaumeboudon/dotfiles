@@ -1,6 +1,6 @@
 " ==============================================================================
-" > Mote file detection
+" > TeX/LaTeX file detection
 " ==============================================================================
 
-" Detect .mote files as mote filetype
-autocmd BufNewFile,BufRead *.mote set filetype=mote
+" Treat .tex files as LaTeX (not plain TeX)
+let g:tex_flavor = "latex"

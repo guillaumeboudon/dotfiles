@@ -1,6 +1,6 @@
 " ==============================================================================
-" > Mote file detection
+" > YAML file detection
 " ==============================================================================
 
-" Detect .mote files as mote filetype
-autocmd BufNewFile,BufRead *.mote set filetype=mote
+" Detect .gemrc as YAML files
+autocmd BufNewFile,BufRead .gemrc set filetype=yaml

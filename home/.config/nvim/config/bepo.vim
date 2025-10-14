@@ -1,87 +1,93 @@
-" ──────────────────────────────────────────────────────────────────────────────
-" > Mapping BÉPO
-" ──────────────────────────────────────────────────────────────────────────────
+" ==============================================================================
+" > BÉPO keyboard layout mappings
+" ==============================================================================
 
-" {W} -> [É]
-" ——————————
-" " On remappe W sur É :
-" noremap é w
-" noremap É W
-" " Corollaire: on remplace les text objects aw, aW, iw et iW
-" " pour effacer/remplacer un mot quand on n’est pas au début (daé / laé).
-" onoremap aé aw
-" onoremap aÉ aW
-" onoremap ié iw
-" onoremap iÉ iW
-" Pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
+" > Window management ----------------------------------------------------------
+
+" Use {W} as Ctrl+W for window commands
 noremap w <C-w>
+
+" Use {W}{W} to cycle through windows
 noremap W <C-w><C-w>
 
-" [HJKL] -> {CTSR}
-" ————————————————
-" {cr} = « gauche / droite »
-noremap c h
-noremap r l
-" {ts} = « haut / bas »
-" noremap t gj
-" noremap s gk
-noremap t j
-noremap s k
-" {CR} = « haut / bas de l'écran »
-noremap C H
-noremap R L
-" {TS} = « joindre / aide »
-noremap T J
-noremap S K
-" Corollaire : repli suivant / précédent
-noremap zs zj
-noremap zt zk
+" > Directional navigation: [HJKL] → {CTSR} -----------------------------------
 
-" {HJKL} <- [CTSR]
-" ————————————————
-" {J} = « Jusqu'à »            (j = suivant, J = précédant)
-noremap j t
-noremap J T
-" {L} = « Change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
-noremap l c
-noremap L C
-" {H} = « Remplace »           (h = un caractère slt, H = reste en « Remplace »)
-noremap h r
-noremap H R
-" {K} = « Substitue »          (k = caractère, K = ligne)
-noremap k s
-noremap K S
-" Corollaire : correction orthographique
-noremap ]k ]s
-noremap [k [s
+" Horizontal movement (BÉPO home row)
+noremap c h  " left
+noremap r l  " right
 
-" Désambiguation de {g}
-" —————————————————————
-" ligne écran précédente / suivante (à l'intérieur d'une phrase)
-noremap gs gk
-noremap gt gj
-" onglet précédant / suivant
-noremap gb gT
-noremap gé gt
-" optionnel : {gB} / {gÉ} pour aller au premier / dernier onglet
+" Vertical movement (BÉPO home row)
+noremap t j  " down
+noremap s k  " up
+
+" Jump to top/bottom of screen
+noremap C H  " top of screen
+noremap R L  " bottom of screen
+
+" Join lines / Help
+noremap T J  " join lines
+noremap S K  " help keyword
+
+" Fold navigation
+noremap zs zj  " next fold
+noremap zt zk  " previous fold
+
+" > Remapped commands: {HJKL} ← [CTSR] ----------------------------------------
+
+" {J} = "Jusqu'à" (until character, like 't' in QWERTY)
+noremap j t  " until character forward
+noremap J T  " until character backward
+
+" {L} = "Change" (like 'c' in QWERTY)
+noremap l c  " change motion
+noremap L C  " change to end of line
+
+" {H} = "Replace" (like 'r' in QWERTY)
+noremap h r  " replace single character
+noremap H R  " replace mode
+
+" {K} = "Substitute" (like 's' in QWERTY)
+noremap k s  " substitute character
+noremap K S  " substitute line
+
+" Spell checking navigation
+noremap ]k ]s  " next spelling error
+noremap [k [s  " previous spelling error
+
+" > Display line navigation ----------------------------------------------------
+
+" Navigate display lines within wrapped text (with 'g' prefix)
+noremap gs gk  " up one display line
+noremap gt gj  " down one display line
+
+" > Tab navigation -------------------------------------------------------------
+
+" Previous/next tab
+noremap gb gT  " previous tab
+noremap gé gt  " next tab
+
+" First/last tab
 noremap gB :exe "silent! tabfirst"<CR>
 noremap gÉ :exe "silent! tablast"<CR>
-" optionnel : {g"} pour aller au début de la ligne écran
+
+" Beginning of display line
 noremap g" g0
 
-" <> en direct
-" ————————————
+" > Angle brackets -------------------------------------------------------------
+
+" Direct access to < and > (useful for indenting)
 noremap « <
 noremap » >
 
-" Remaper la gestion des fenêtres
-" ———————————————————————————————
-noremap wt <C-w>j
-noremap ws <C-w>k
-noremap wc <C-w>h
-noremap wr <C-w>l
-noremap wd <C-w>c
-noremap wo <C-w>s
-noremap wp <C-w>o
-" noremap w<SPACE> :split<CR>
-" noremap w<CR> :vsplit<CR>
+" > Window navigation (BÉPO-adapted) -------------------------------------------
+
+" Navigate between splits using BÉPO directional keys
+noremap wt <C-w>j  " move to split below
+noremap ws <C-w>k  " move to split above
+noremap wc <C-w>h  " move to split left
+noremap wr <C-w>l  " move to split right
+
+" Window management
+noremap wd <C-w>c  " close window
+noremap wo <C-w>s  " split horizontally
+noremap wp <C-w>o  " close other windows
