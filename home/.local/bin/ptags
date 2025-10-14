@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+from mutagen.mp4 import MP4
+from mutagen.mp3 import EasyMP3
+from mutagen.id3 import ID3, USLT, APIC
+
+def format_tag(label, value, width=13):
+    return f"{label+':':<{width}} {value}"
+
+def summarize_m4a(path):
+    audio = MP4(path)
+    tags = {
+        "title": audio.get("\xa9nam", [""])[0],
+        "artist": audio.get("\xa9ART", [""])[0],
+        "album_artist": audio.get("aART", [""])[0],
+        "album": audio.get("\xa9alb", [""])[0],
+        "genre": audio.get("\xa9gen", [""])[0],
+        "year": audio.get("\xa9day", [""])[0],
+    }
+
+    # Track / disc
+    trkn = audio.get("trkn", [(0, 0)])[0]
+    tags["track"] = f"{trkn[0]}/{trkn[1]}" if trkn[0] else ""
+    dskn = audio.get("disk", [(0, 0)])[0]
+    tags["disk"] = f"{dskn[0]}/{dskn[1]}" if dskn[0] else ""
+
+    # Cover
+    tags["cover"] = "✅" if "covr" in audio else "⛔"
+
+    # Lyrics
+    tags["lyrics"] = "✅" if "\xa9lyr" in audio else "⛔"
+
+    return tags
+
+def summarize_mp3(path):
+    audio = EasyMP3(path)
+    id3 = ID3(path)
+
+    tags = {
+        "title": audio.get("title", [""])[0],
+        "artist": audio.get("artist", [""])[0],
+        "album_artist": audio.get("albumartist", [""])[0],
+        "album": audio.get("album", [""])[0],
+        "genre": audio.get("genre", [""])[0],
+        "year": audio.get("date", [""])[0],
+    }
+
+    # Track
+    trkn = audio.get("tracknumber", [""])[0]
+    tags["track"] = trkn
+
+    # Disc
+    dskn = audio.get("discnumber", [""])[0]
+    tags["disk"] = dskn
+
+    # Cover
+    tags["cover"] = "✅" if any(isinstance(f, APIC) for f in id3.values()) else "⛔"
+
+    # Lyrics
+    tags["lyrics"] = "✅" if any(isinstance(f, USLT) for f in id3.values()) else "⛔"
+
+    return tags
+
+def print_summary(path):
+    print("-" * 80)
+    print(path)
+    print("-" * 80)
+    ext = os.path.splitext(path)[1].lower()
+    try:
+        if ext == ".m4a":
+            tags = summarize_m4a(path)
+        elif ext == ".mp3":
+            tags = summarize_mp3(path)
+        else:
+            print("⚠️ Format non pris en charge")
+            return
+        for key in ["title", "artist", "album_artist", "album", "genre", "year", "track", "disk", "cover", "lyrics"]:
+            print(format_tag(key, tags.get(key, "")))
+    except Exception as e:
+        print(f"❌ Erreur sur {path}: {e}")
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage : summarize_audio_tags.py <fichier1> [fichier2 ...]")
+        sys.exit(1)
+
+    for file in sys.argv[1:]:
+        if os.path.isfile(file):
+            print_summary(file)
+        else:
+            print(f"❌ Fichier introuvable : {file}")
+
+if __name__ == "__main__":
+    main()

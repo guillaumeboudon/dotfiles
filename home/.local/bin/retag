@@ -1,0 +1,170 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import sys
+from mutagen import File
+from mutagen.mp3 import EasyMP3
+from mutagen.id3 import ID3, ID3NoHeaderError
+from mutagen.mp4 import MP4
+
+def update_mp3_tags(file_path, args):
+    audio = EasyMP3(file_path)
+
+    # Tags principaux
+    if args.title:
+        audio["title"] = args.title
+    if args.artist:
+        audio["artist"] = args.artist
+    if args.album_artist:
+        audio["albumartist"] = args.album_artist
+    if args.album:
+        audio["album"] = args.album
+    if args.genre:
+        audio["genre"] = args.genre
+    if args.year:
+        audio["date"] = args.year
+
+    # Track number
+    if args.track or args.tracks:
+        old = audio.get("tracknumber", [None])[0]
+        if args.track:
+            number = args.track
+        elif old and "/" in old:
+            number = old.split("/")[0]
+        else:
+            number = old or ""
+        total = args.tracks if args.tracks else (old.split("/")[1] if old and "/" in old else "")
+        if number:
+            audio["tracknumber"] = f"{number}/{total}" if total else number
+
+    # Disc number
+    if args.disk or args.disks:
+        old = audio.get("discnumber", [None])[0]
+        if args.disk:
+            number = args.disk
+        elif old and "/" in old:
+            number = old.split("/")[0]
+        else:
+            number = old or ""
+        total = args.disks if args.disks else (old.split("/")[1] if old and "/" in old else "")
+        if number:
+            audio["discnumber"] = f"{number}/{total}" if total else number
+
+    # Nettoyage des tags superflus
+    allowed_keys = {
+        "title", "artist", "albumartist", "album", "genre", "tracknumber", "discnumber", "date", "lyrics"
+    }
+    for key in list(audio.keys()):
+        if key not in allowed_keys:
+            del audio[key]
+
+    audio.save()
+
+    try:
+        id3 = ID3(file_path)
+    except ID3NoHeaderError:
+        id3 = ID3()
+        id3.save(file_path)
+
+    # Purge des Frames ID3
+    allowed = {
+        "TIT2", # Title
+        "TPE1", # Album artist
+        "TPE2", # Artist
+        "TALB", # Album
+        "TCON", # Genre
+        "TRCK", # Track/Tracks
+        "TPOS", # Disk/Disks
+        "TYER", # Year
+        "TDRC", # Recording time / date
+        "TDOR", # Original release time
+        "USLT", # Lyrics
+        "APIC"  # Cover
+    }
+
+    present_ids = {f.FrameID for f in id3.values()}
+    for fid in present_ids:
+        if fid not in allowed:
+            id3.delall(fid)
+
+    id3.save(file_path)
+
+
+    print(f"✅ MP3 mis à jour : {file_path}")
+
+def update_m4a_tags(file_path, args):
+    audio = MP4(file_path)
+
+    # Tags principaux
+    if args.title:
+        audio["\xa9nam"] = [args.title]
+    if args.artist:
+        audio["\xa9ART"] = [args.artist]
+    if args.album_artist:
+        audio["aART"] = [args.album_artist]
+    if args.album:
+        audio["\xa9alb"] = [args.album]
+    if args.genre:
+        audio["\xa9gen"] = [args.genre]
+    if args.year:
+        audio["\xa9day"] = [args.year]
+
+    # Track number
+    if args.track or args.tracks:
+        old = audio.get("trkn", [(0, 0)])[0]
+        number = int(args.track) if args.track else old[0]
+        total = int(args.tracks) if args.tracks else old[1]
+        audio["trkn"] = [(number, total)]
+
+    # Disc number
+    if args.disk or args.disks:
+        old = audio.get("disk", [(0, 0)])[0]
+        number = int(args.disk) if args.disk else old[0]
+        total = int(args.disks) if args.disks else old[1]
+        audio["disk"] = [(number, total)]
+
+    # Nettoyage des tags superflus
+    allowed_keys = {
+        "\xa9nam", "\xa9ART", "aART", "\xa9alb", "\xa9gen", "\xa9day", "trkn", "disk", "covr", "\xa9lyr"
+    }
+    for key in list(audio.keys()):
+        if key not in allowed_keys:
+            del audio[key]
+
+    audio.save()
+    print(f"✅ M4A mis à jour : {file_path}")
+
+def main():
+    parser = argparse.ArgumentParser(description="Met à jour les tags essentiels de fichiers audio MP3/M4A.")
+    parser.add_argument("files", nargs="+", help="Fichiers audio à modifier")
+    parser.add_argument("--title", help="Titre de la piste")
+    parser.add_argument("--artist", help="Artiste principal")
+    parser.add_argument("--album_artist", help="Artiste de l’album")
+    parser.add_argument("--album", help="Nom de l’album")
+    parser.add_argument("--genre", help="Genre musical")
+    parser.add_argument("--year", help="Année ou date de sortie")
+    parser.add_argument("--track", help="Numéro de la piste (ex: 3)")
+    parser.add_argument("--tracks", help="Nombre total de pistes (ex: 10)")
+    parser.add_argument("--disk", help="Numéro de disque (ex: 1)")
+    parser.add_argument("--disks", help="Nombre total de disques (ex: 2)")
+
+    args = parser.parse_args()
+
+    for file_path in args.files:
+        if not os.path.isfile(file_path):
+            print(f"❌ Fichier introuvable : {file_path}")
+            continue
+        ext = os.path.splitext(file_path)[1].lower()
+        try:
+            if ext == ".mp3":
+                update_mp3_tags(file_path, args)
+            elif ext == ".m4a":
+                update_m4a_tags(file_path, args)
+            else:
+                print(f"⚠️ Format non supporté : {file_path}")
+        except Exception as e:
+            print(f"❌ Erreur sur {file_path} : {e}")
+
+if __name__ == "__main__":
+    main()
