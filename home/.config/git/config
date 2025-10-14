@@ -23,6 +23,7 @@
   his = "history -n 20"
   m = "merge"
   mo = "!f() { git merge origin/$1; }; f"
+  mone = "!f() { git merge --no-edit origin/$1; }; f"
   plo = "!git pull origin $(git brc)"
   pso = "!git push origin $(git brc)"
   st = "status -s"
