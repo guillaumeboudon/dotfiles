@@ -28,7 +28,7 @@ nnoremap Y y$
 " > Plugin bindings ------------------------------------------------------------
 
 " FZF buffer list
-nmap ' :Buffers<CR>
+nmap ’ :Buffers<CR>
 
 " Fern file explorer in current directory
 nmap - :Fern %:h<CR>

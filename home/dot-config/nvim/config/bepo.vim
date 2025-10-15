@@ -13,58 +13,58 @@ noremap W <C-w><C-w>
 " > Directional navigation: [HJKL] → {CTSR} -----------------------------------
 
 " Horizontal movement (BÉPO home row)
-noremap c h  " left
-noremap r l  " right
+noremap c h
+noremap r l
 
 " Vertical movement (BÉPO home row)
-noremap t j  " down
-noremap s k  " up
+noremap t j
+noremap s k
 
 " Jump to top/bottom of screen
-noremap C H  " top of screen
-noremap R L  " bottom of screen
+noremap C H
+noremap R L
 
 " Join lines / Help
-noremap T J  " join lines
-noremap S K  " help keyword
+noremap T J
+noremap S K
 
 " Fold navigation
-noremap zs zj  " next fold
-noremap zt zk  " previous fold
+noremap zs zj
+noremap zt zk
 
 " > Remapped commands: {HJKL} ← [CTSR] ----------------------------------------
 
-" {J} = "Jusqu'à" (until character, like 't' in QWERTY)
-noremap j t  " until character forward
-noremap J T  " until character backward
+" {J} = Jusqu'à (until character, like 't' in QWERTY)
+noremap j t
+noremap J T
 
-" {L} = "Change" (like 'c' in QWERTY)
-noremap l c  " change motion
-noremap L C  " change to end of line
+" {L} = Change (like 'c' in QWERTY)
+noremap l c
+noremap L C
 
-" {H} = "Replace" (like 'r' in QWERTY)
-noremap h r  " replace single character
-noremap H R  " replace mode
+" {H} = Replace (like 'r' in QWERTY)
+noremap h r
+noremap H R
 
 " {K} = "Substitute" (like 's' in QWERTY)
-noremap k s  " substitute character
-noremap K S  " substitute line
+noremap k s
+noremap K S
 
 " Spell checking navigation
-noremap ]k ]s  " next spelling error
-noremap [k [s  " previous spelling error
+noremap ]k ]s
+noremap [k [s
 
 " > Display line navigation ----------------------------------------------------
 
 " Navigate display lines within wrapped text (with 'g' prefix)
-noremap gs gk  " up one display line
-noremap gt gj  " down one display line
+noremap gs gk
+noremap gt gj
 
 " > Tab navigation -------------------------------------------------------------
 
 " Previous/next tab
-noremap gb gT  " previous tab
-noremap gé gt  " next tab
+noremap gb gT
+noremap gé gt
 
 " First/last tab
 noremap gB :exe "silent! tabfirst"<CR>
@@ -82,12 +82,12 @@ noremap » >
 " > Window navigation (BÉPO-adapted) -------------------------------------------
 
 " Navigate between splits using BÉPO directional keys
-noremap wt <C-w>j  " move to split below
-noremap ws <C-w>k  " move to split above
-noremap wc <C-w>h  " move to split left
-noremap wr <C-w>l  " move to split right
+noremap wt <C-w>j
+noremap ws <C-w>k
+noremap wc <C-w>h
+noremap wr <C-w>l
 
 " Window management
-noremap wd <C-w>c  " close window
-noremap wo <C-w>s  " split horizontally
-noremap wp <C-w>o  " close other windows
+noremap wd <C-w>c
+noremap wo <C-w>s
+noremap wp <C-w>o
