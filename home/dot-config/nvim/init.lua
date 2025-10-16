@@ -19,9 +19,11 @@ vim.opt.runtimepath:prepend(lazypath)
 -- > Load configuration
 -- ==============================================================================
 
+require("config.filetypes")  -- Custom filetype detection
 require("config.options")    -- General Vim settings
 require("config.keymaps")    -- Key bindings (including BÉPO)
 require("config.autocmds")   -- Autocommands
+require("utils.functions")   -- Custom functions and commands
 require("config.lazy")       -- Plugin configuration
 
 -- ==============================================================================

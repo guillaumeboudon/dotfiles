@@ -3,7 +3,11 @@
 -- ==============================================================================
 
 -- Disable Elm support in polyglot (using dedicated elm-vim plugin instead)
-vim.g.polyglot_disabled = { "elm" }
+-- Disable languages handled by Treesitter to avoid conflicts
+vim.g.polyglot_disabled = {
+  "elm",
+  "markdown",  -- Treesitter handles it better
+}
 
 -- Setup lazy.nvim
 require("lazy").setup({
