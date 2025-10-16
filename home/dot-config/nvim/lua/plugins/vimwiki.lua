@@ -1,11 +1,8 @@
--- ==============================================================================
--- > Wiki plugins
--- ==============================================================================
+-- ===========================================================================
+-- > VimWiki (personal wiki)
+-- ===========================================================================
 
 return {
-  -- ===========================================================================
-  -- > VimWiki (personal wiki)
-  -- ===========================================================================
   {
     "vimwiki/vimwiki",
     keys = {
@@ -38,19 +35,6 @@ return {
       -- Toggle checklist items
       vim.keymap.set("n", "<leader>w<space>", "<Plug>VimwikiToggleListItem", {})
       vim.keymap.set("v", "<leader>w<space>", "<Plug>VimwikiToggleListItem", {})
-    end,
-  },
-
-  -- ===========================================================================
-  -- > Waikiki (wiki navigation)
-  -- ===========================================================================
-  {
-    "fcpg/vim-waikiki",
-    dependencies = { "vimwiki/vimwiki" },
-    ft = { "markdown", "vimwiki" },
-    init = function()
-      vim.g.waikiki_roots = { "~/kDrive/Documents/Wiki" }
-      vim.g.waikiki_default_maps = 1
     end,
   },
 }
