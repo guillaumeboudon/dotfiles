@@ -3,13 +3,13 @@
 ## Install
 
 1. Clone this repository:
-    ```shell
+    ```sh
     cd
     git clone https://github.com/guillaumeboudon/dotfiles.git .dotfiles
     cd .dotfiles
     ```
 2. Install own dependencies:
-    ```shell
+    ```sh
     mkdir -p ~/code/guillaumeboudon
     git clone https://github.com/guillaumeboudon/base16-scripts.git ~/code/guillaumeboudon/base16-scripts
     ```
@@ -18,7 +18,7 @@
 5. Set dotfiles: `stow --no-folding home`
 6. Install z: `mkdir -p ~/.local/share && touch ~/.local/share/z`
 7. Install ruby:
-    ```shell
+    ```sh
     rbenv install -l
     rbenv install <version>
     rbenv global <version>
@@ -41,6 +41,6 @@
 
 Implement ctags for rails apps:
 
-```shell
+```sh
 ctags --tag-relative -Rf.tags --exclude=.git --exclude=tmp --exclude=public --exclude=log --exclude=elm-stuff --exclude=node_modules --languages=ruby .
 ```
