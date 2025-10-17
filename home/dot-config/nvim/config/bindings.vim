@@ -63,7 +63,7 @@ xmap S   <Plug>VSurround
 xmap gS  <Plug>VgSurround
 
 " Add «» surroundings
-let g:surround_171 = "« \r »"
+let g:surround_171 = "« \r »"
 let g:surround_187 = "« \r »"
 
 " Fix my common mistakes
