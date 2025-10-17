@@ -8,6 +8,9 @@ require("core.keymaps")
 require("core.bepo")
 require("core.autocmds")
 
+-- Load plugin manager
+require("plugins")
+
 -- Colorscheme
 require("colors.base16").setup()
 
