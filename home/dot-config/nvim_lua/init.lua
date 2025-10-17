@@ -8,8 +8,8 @@ require("core.keymaps")
 require("core.bepo")
 require("core.autocmds")
 
--- Colorscheme (will be added later)
--- vim.cmd.colorscheme("base16")
+-- Colorscheme
+require("colors.base16").setup()
 
 -- Clear search highlight on startup
 vim.cmd("silent! nohlsearch")
