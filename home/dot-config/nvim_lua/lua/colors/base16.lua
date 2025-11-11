@@ -385,6 +385,100 @@ function M.setup()
 
   -- HTML strike-through as comment
   vim.cmd("hi link HtmlStrike Comment")
+
+  -- -----------------------------------------------------------------------------
+  -- > Treesitter Highlights
+  -- -----------------------------------------------------------------------------
+
+  -- Link Treesitter groups to existing syntax groups
+  -- This ensures Treesitter uses your Base16 colors
+
+  -- Literals
+  vim.cmd("hi link @string String")
+  vim.cmd("hi link @character Character")
+  vim.cmd("hi link @number Number")
+  vim.cmd("hi link @boolean Boolean")
+  vim.cmd("hi link @float Float")
+
+  -- Functions
+  vim.cmd("hi link @function Function")
+  vim.cmd("hi link @function.call Function")
+  vim.cmd("hi link @function.builtin Function")
+  vim.cmd("hi link @function.macro Macro")
+  vim.cmd("hi link @method Function")
+  vim.cmd("hi link @method.call Function")
+  vim.cmd("hi link @constructor Function")
+
+  -- Keywords
+  vim.cmd("hi link @keyword Keyword")
+  vim.cmd("hi link @keyword.function Keyword")
+  vim.cmd("hi link @keyword.operator Operator")
+  vim.cmd("hi link @keyword.return Keyword")
+  vim.cmd("hi link @conditional Conditional")
+  vim.cmd("hi link @repeat Repeat")
+  vim.cmd("hi link @label Label")
+
+  -- Operators
+  vim.cmd("hi link @operator Operator")
+
+  -- Punctuation
+  vim.cmd("hi link @punctuation.delimiter Delimiter")
+  vim.cmd("hi link @punctuation.bracket Delimiter")
+  vim.cmd("hi link @punctuation.special Special")
+
+  -- Types
+  vim.cmd("hi link @type Type")
+  vim.cmd("hi link @type.builtin Type")
+  vim.cmd("hi link @type.definition Type")
+  vim.cmd("hi link @type.qualifier Keyword")
+
+  -- Variables
+  vim.cmd("hi link @variable Normal")
+  vim.cmd("hi link @variable.builtin Identifier")
+  vim.cmd("hi link @variable.parameter Identifier")
+  vim.cmd("hi link @variable.member Identifier")
+
+  -- Constants
+  vim.cmd("hi link @constant Constant")
+  vim.cmd("hi link @constant.builtin Constant")
+  vim.cmd("hi link @constant.macro Macro")
+
+  -- Namespaces and modules
+  vim.cmd("hi link @namespace Include")
+  vim.cmd("hi link @module Include")
+
+  -- Text
+  vim.cmd("hi link @text Normal")
+  vim.cmd("hi link @text.strong Bold")
+  vim.cmd("hi link @text.emphasis Italic")
+  vim.cmd("hi link @text.underline Underlined")
+  vim.cmd("hi link @text.title Title")
+  vim.cmd("hi link @text.literal String")
+  vim.cmd("hi link @text.uri Underlined")
+
+  -- Tags (HTML/XML)
+  vim.cmd("hi link @tag Tag")
+  vim.cmd("hi link @tag.attribute Identifier")
+  vim.cmd("hi link @tag.delimiter Delimiter")
+
+  -- Comments
+  vim.cmd("hi link @comment Comment")
+  vim.cmd("hi link @comment.error Error")
+  vim.cmd("hi link @comment.warning WarningMsg")
+  vim.cmd("hi link @comment.todo Todo")
+  vim.cmd("hi link @comment.note Todo")
+
+  -- Markup (Markdown)
+  vim.cmd("hi link @markup.heading Title")
+  vim.cmd("hi link @markup.strong Bold")
+  vim.cmd("hi link @markup.italic Italic")
+  vim.cmd("hi link @markup.underline Underlined")
+  vim.cmd("hi link @markup.link Underlined")
+  vim.cmd("hi link @markup.raw String")
+
+  -- Misc
+  vim.cmd("hi link @error Error")
+  vim.cmd("hi link @warning WarningMsg")
 end
 
 return M
