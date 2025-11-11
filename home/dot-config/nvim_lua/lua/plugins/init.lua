@@ -20,9 +20,23 @@ vim.opt.rtp:prepend(lazypath)
 -- > Plugin Specifications
 -- -----------------------------------------------------------------------------
 
-local plugins = {
-  -- Empty for now - plugins will be added progressively
-}
+-- Automatically load all plugin files from lua/plugins/
+local plugins = {}
+
+local plugin_files = vim.fn.glob(vim.fn.stdpath("config") .. "/lua/plugins/*.lua", false, true)
+for _, file in ipairs(plugin_files) do
+  local plugin_name = vim.fn.fnamemodify(file, ":t:r")
+
+  -- Skip init.lua (this file)
+  if plugin_name ~= "init" then
+    local ok, plugin_config = pcall(require, "plugins." .. plugin_name)
+    if ok then
+      table.insert(plugins, plugin_config)
+    else
+      vim.notify("Failed to load plugin: " .. plugin_name, vim.log.levels.ERROR)
+    end
+  end
+end
 
 -- -----------------------------------------------------------------------------
 -- > Lazy.nvim Setup
