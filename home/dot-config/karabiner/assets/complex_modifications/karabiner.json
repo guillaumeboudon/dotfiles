@@ -88,6 +88,20 @@
       "to_if_alone": [{ "key_code": "escape" }]
     }]
   }, {
+    "description": "ê → $, Ê → #",
+    "manipulators": [
+      {
+        "type": "basic",
+        "from": {
+          "key_code": "non_us_backslash",
+          "modifiers": { "optional": ["any"] }
+        },
+        "to": [
+          { "key_code": "grave_accent_and_tilde" }
+        ]
+      }
+    ]
+  }, {
     "description": "Shifts trainer",
     "manipulators": [
       { "from": { "key_code": "non_us_backslash",       "modifiers": { "mandatory": ["left_shift"], "optional": ["caps_lock", "command", "control", "option", "fn"] } }, "to": [{ "key_code": "vk_none" }], "type": "basic" },
