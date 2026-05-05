@@ -228,7 +228,7 @@ _try_source ~/.fzf.zsh
 # --flat          Do not shouw accounts in a hierarchical tree
 # --pager=less"
 LEDGER_ARGS="--strict" #--price-db prices.txt --market --explicit"
-alias led="hledger -f ~/Dropbox/ledger/current.ledger ${LEDGER_ARGS}"
+alias led="hledger -f ~/kDrive/Documents/ledger/all.ledger ${LEDGER_ARGS}"
 
 # Rbenv & Nodenv
 # ------------------------------------------------
