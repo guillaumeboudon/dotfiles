@@ -21,3 +21,6 @@ irb_history
 
 # python
 .python-version
+
+# Claude
+**/.claude/settings.local.json
