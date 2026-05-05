@@ -451,6 +451,7 @@ eval "$(starship init zsh)"
 _try_source "$XDG_CONFIG_HOME/zsh/local.zsh"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export OPENSSL_CONF=/dev/null
 
 # }}}
 
