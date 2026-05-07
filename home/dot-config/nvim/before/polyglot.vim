@@ -1,1 +1,1 @@
-let g:polyglot_disabled = ["elm"]
+let g:polyglot_disabled = ["elm", "markdown"]

@@ -36,6 +36,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': ['tex', 'plaintex'] }
 Plug 'chrisbra/Colorizer'
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
 
 call plug#end()
 
