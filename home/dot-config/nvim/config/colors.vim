@@ -11,6 +11,15 @@ call Base16hi("htmlH6", g:base16_gui0D, "", g:base16_cterm0D, "", "", "")
 
 hi link HtmlStrike Comment
 
+" Markdown (tree-sitter captures → legacy groups defined above)
+hi link @markup.heading.1.markdown htmlH1
+hi link @markup.heading.2.markdown htmlH2
+hi link @markup.heading.3.markdown htmlH3
+hi link @markup.heading.4.markdown htmlH4
+hi link @markup.heading.5.markdown htmlH5
+hi link @markup.heading.6.markdown htmlH6
+hi link @markup.strikethrough HtmlStrike
+
 " Gruvbox
 " set background=dark
 set termguicolors
