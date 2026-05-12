@@ -19,6 +19,8 @@ hi link @markup.heading.4.markdown htmlH4
 hi link @markup.heading.5.markdown htmlH5
 hi link @markup.heading.6.markdown htmlH6
 hi link @markup.strikethrough HtmlStrike
+call Base16hi("@markup.strong", g:base16_gui0A, "", g:base16_cterm0A, "", "bold", "")
+call Base16hi("@markup.italic", g:base16_gui0E, "", g:base16_cterm0E, "", "italic", "")
 
 " Gruvbox
 " set background=dark
