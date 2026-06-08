@@ -26,6 +26,12 @@ call Base16hi("@markup.link", g:base16_gui08, "", g:base16_cterm08, "", "", "")
 call Base16hi("@markup.link.label", g:base16_gui08, "", g:base16_cterm08, "", "", "")
 call Base16hi("@markup.link.url", g:base16_gui08, "", g:base16_cterm08, "", "", "")
 
+" mini.hipatterns : mots-clés de suivi en badge (fond base16, texte sombre)
+call Base16hi("MiniHipatternsFixme", g:base16_gui00, g:base16_gui08, g:base16_cterm00, g:base16_cterm08, "bold", "")
+call Base16hi("MiniHipatternsHack",  g:base16_gui00, g:base16_gui09, g:base16_cterm00, g:base16_cterm09, "bold", "")
+call Base16hi("MiniHipatternsTodo",  g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "bold", "")
+call Base16hi("MiniHipatternsNote",  g:base16_gui00, g:base16_gui0C, g:base16_cterm00, g:base16_cterm0C, "bold", "")
+
 " Gruvbox
 " set background=dark
 set termguicolors
