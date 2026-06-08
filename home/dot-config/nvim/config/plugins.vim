@@ -32,7 +32,6 @@ Plug 'dense-analysis/ale'
 " Plug 'lmeijvogel/vim-yaml-helper', { 'for': 'yaml' }
 Plug 'elmcast/elm-vim'
 Plug 'ledger/vim-ledger'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': ['tex', 'plaintex'] }
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
