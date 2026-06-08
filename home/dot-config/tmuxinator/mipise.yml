@@ -17,8 +17,12 @@ windows:
         - v
         -
 
-  - mipise_tools:
-      root: <%= ENV["CODE_ROOT"] %>/mipise/mipise_tools
+  - mira:
+      root: <%= ENV["CODE_ROOT"] %>/mipise/mira
+      layout: main-vertical
+      panes:
+        - v
+        -
 
   - dotfiles:
       root: <%= ENV["HOME"] %>/.dotfiles
