@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd ~ || exit 1
+
 echo -e "Update \"brew\"\n============="
 brew update
 
@@ -15,8 +17,11 @@ brew doctor
 echo "> Anything missing?"
 brew missing
 
-echo "> Mac App Store"
+echo -e "\nUpdate applications from App Store\n=================================="
+echo "> Check"
 mas outdated
+echo "> Update"
+mas upgrade
 
-echo "install with: mas upgrade"
-echo "did you think to launch gem update"
+echo -e "\nUpdate gems\n==========="
+gem update
