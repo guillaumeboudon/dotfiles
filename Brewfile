@@ -1,6 +1,3 @@
-# Taps
-tap "puma/puma"
-
 # Brews
 brew "bash"
 brew "bat"
