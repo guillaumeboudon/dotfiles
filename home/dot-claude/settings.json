@@ -7,17 +7,35 @@
       "Read",
       "Edit",
       "Write",
-      "Bash(git status *)",
-      "Bash(git diff *)",
-      "Bash(git log *)",
-      "Bash(git show *)",
-      "Bash(git branch *)",
-      "Bash(git rev-parse *)",
-      "Bash(git remote -v)",
-      "Bash(ls *)",
       "Bash(cat *)",
+      "Bash(file *)",
       "Bash(find *)",
-      "Bash(grep *)"
+      "Bash(git blame *)",
+      "Bash(git branch *)",
+      "Bash(git commit *)",
+      "Bash(git commit)",
+      "Bash(git config --get *)",
+      "Bash(git describe *)",
+      "Bash(git diff *)",
+      "Bash(git fetch *)",
+      "Bash(git log *)",
+      "Bash(git ls-files *)",
+      "Bash(git pull *)",
+      "Bash(git reflog *)",
+      "Bash(git remote -v)",
+      "Bash(git rev-parse *)",
+      "Bash(git shortlog *)",
+      "Bash(git show *)",
+      "Bash(git stash list*)",
+      "Bash(git status *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(ls *)",
+      "Bash(rg *)",
+      "Bash(tail *)",
+      "Bash(tree *)",
+      "Bash(wc *)",
+      "Bash(which *)"
     ],
     "deny": [
       "Bash(sudo *)",
@@ -40,20 +58,41 @@
       "Bash(git clean -xfd *)",
       "Bash(heroku *)",
       "Bash(scalingo *)"
-    ],
-    "ask": [
-      "Bash(git commit *)",
-      "Bash(git commit)",
-      "Bash(git merge *)",
-      "Bash(git cherry-pick *)",
-      "Bash(git tag *)",
-      "Bash(git fetch *)",
-      "Bash(git pull *)"
     ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); msg=$(printf '%s' \"$input\" | jq -r '.message // \"Claude requiert ton attention\"'); dir=$(basename \"$(printf '%s' \"$input\" | jq -r '.cwd // \"\"')\"); /opt/homebrew/bin/terminal-notifier -title \"Claude Code\" -subtitle \"$dir\" -message \"$msg\" -sound Basso -sender com.anthropic.claudefordesktop 2>/dev/null || true",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/guillaume/code/claude-carbon/scripts/persist-session.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/guillaume/code/claude-carbon/scripts/statusline.sh"
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -64,5 +103,6 @@
     }
   },
   "defaultMode": "default",
-  "additionalDirectories": []
+  "additionalDirectories": [],
+  "tui": "fullscreen"
 }
