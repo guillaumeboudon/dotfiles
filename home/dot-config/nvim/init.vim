@@ -76,6 +76,10 @@ autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
 " Highlighting selection on yank
 autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 
+" Avoid the W16 warning on :w on kDrive-synced Wiki files
+autocmd BufWritePost ~/kDrive/Documents/Wiki/* call timer_start(2500, {-> execute('silent! checktime')})
+autocmd FocusGained,BufEnter ~/kDrive/Documents/Wiki/* silent! checktime
+
 augroup END
 
 " ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
