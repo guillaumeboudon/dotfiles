@@ -2,16 +2,122 @@
 
 require "json"
 require "date"
+require "optparse"
+require "reline" # for Reline::Unicode.calculate_width, emojis are 2 columns wide
 
-def report
+def split_list(value)
+  value.split(",").map(&:strip).reject(&:empty?)
+end
+
+def parse_options(argv)
+  options = { only_ids: [], only_tags: [], exclude_ids: [], exclude_tags: [] }
+
+  parser = OptionParser.new do |opts|
+    opts.banner = "Usage: pr_lengths [options]"
+
+    opts.on("--after DATE", "Stop at the first PR created before DATE (ex: 2025-07-01)") do |value|
+      options[:after] = Date.parse(value)
+    end
+
+    opts.on("--only_id IDS", "Keep only these PR ids (comma separated, ex: 4862,4982)") do |value|
+      options[:only_ids] = split_list(value)
+    end
+
+    opts.on("--only_tag TAGS", "Keep only PRs carrying one of these labels (ex: \"UX/UI,Toto\")") do |value|
+      options[:only_tags] = split_list(value)
+    end
+
+    opts.on("--exclude_id IDS", "Skip these PR ids (comma separated, ex: 4862,4982)") do |value|
+      options[:exclude_ids] = split_list(value)
+    end
+
+    opts.on("--exclude_tag TAGS", "Skip PRs carrying one of these labels (ex: \"UX/UI,Toto\")") do |value|
+      options[:exclude_tags] = split_list(value)
+    end
+
+    opts.on("--max_files N", Integer, "Skip PRs touching more than N files") do |value|
+      options[:max_files] = value
+    end
+
+    opts.on("--drafts", "Include draft PRs (they are skipped by default)") do
+      options[:drafts] = true
+    end
+
+    opts.on("-h", "--help", "Show this help") do
+      puts opts
+      exit
+    end
+  end
+
+  parser.parse!(argv)
+  options
+rescue OptionParser::ParseError, Date::Error => e
+  warn "pr_lengths: #{e.message}"
+  warn parser.help
+  exit 1
+end
+
+COLUMNS = {
+  draft: { title: "Draft", width: 5 },
+  id: { title: "ID", width: 4 },
+  changes: { title: "Modifs", width: 6, align: :right },
+  date: { title: "Date", width: 10 },
+  url: { title: "URL", width: 42 },
+  author: { title: "Auteur", width: 18 },
+  pr_title: { title: "Titre", width: 70 },
+  tags: { title: "Tags", width: 40 },
+}.freeze
+
+def columns_for(options)
+  keys = COLUMNS.keys
+  keys -= [:draft] unless options[:drafts]
+  keys
+end
+
+def separator(keys)
+  "+#{keys.map { "-" * (COLUMNS[_1][:width] + 2) }.join("+")}+"
+end
+
+def display_width(string)
+  Reline::Unicode.calculate_width(string)
+end
+
+# Truncates on grapheme clusters so an emoji is never cut in half.
+def truncate(string, width)
+  return string if display_width(string) <= width
+
+  kept = +""
+  string.each_grapheme_cluster do |cluster|
+    break if display_width(kept) + display_width(cluster) > width - 1
+
+    kept << cluster
+  end
+  "#{kept}…"
+end
+
+def pad(string, width, align)
+  filler = " " * [width - display_width(string), 0].max
+  align == :right ? "#{filler}#{string}" : "#{string}#{filler}"
+end
+
+def row(keys, values)
+  cells = keys.map do |key|
+    column = COLUMNS[key]
+    pad(truncate(values[key].to_s, column[:width]), column[:width], column[:align])
+  end
+  "| #{cells.join(" | ")} |"
+end
+
+def report(options)
   pr_list = `gh pr list -L 100`
   # pr_list = `gh pr list -s merged -L 100`
   prs = pr_list.lines.map { |line| line[/^\d+/] }
   counter = 0
+  columns = columns_for(options)
 
-  puts "+-------+------+--------+------------+--------------------------------------------+--------------------+------------------------------------------------------------------------+"
-  puts "| Draft | ID   | Modifs | Date       | URL                                        | Auteur             | Titre                                                                  |"
-  puts "+-------+------+--------+------------+--------------------------------------------+--------------------+------------------------------------------------------------------------+"
+  puts separator(columns)
+  puts row(columns, COLUMNS.transform_values { _1[:title] })
+  puts separator(columns)
   prs.each do |pr|
     res = `gh pr view #{pr} --json title,url,files,isDraft,createdAt,author,labels`
     data = JSON.parse(res)
@@ -20,19 +126,30 @@ def report
     created_at = Date.parse(data["createdAt"])
     labels = data["labels"].map { _1["name"] }.join(", ")
 
-    break if created_at < Date.new(2025, 7)
-    # next unless %w[4862 4982 5001 4580 4878 4859 4483].include?(pr)
-    next if data["files"].count >= 6
-    # next if data["isDraft"]
-    # next if changes > 4
-    next if labels.include?("UX/UI")
+    break if options[:after] && created_at < options[:after]
+    next if options[:only_ids].any? && !options[:only_ids].include?(pr)
+    next if options[:only_tags].any? && options[:only_tags].none? { |tag| labels.include?(tag) }
+    next if options[:exclude_ids].include?(pr)
+    next if options[:max_files] && data["files"].count > options[:max_files]
+    next if data["isDraft"] && !options[:drafts]
+    next if options[:exclude_tags].any? { |tag| labels.include?(tag) }
 
     # puts `pr_summary #{pr}`
-    puts "| #{data["isDraft"] ? "DRAFT" : "     "} | #{pr} | #{changes.rjust(6)} | #{Date.parse(data["createdAt"]).strftime("%d/%m/%Y")} | #{data["url"]} | #{data["author"]["login"].ljust(18)} | #{data["title"][0, 70].ljust(70)} | #{labels}"
+    values = {
+      draft: data["isDraft"] ? "DRAFT" : "",
+      id: pr,
+      changes: changes,
+      date: created_at.strftime("%d/%m/%Y"),
+      url: data["url"],
+      author: data["author"]["login"],
+      pr_title: data["title"],
+      tags: labels,
+    }
+    puts row(columns, values)
     counter += 1
   end
-  puts "+-------+------+--------+------------+--------------------------------------------+--------------------+------------------------------------------------------------------------+"
+  puts separator(columns)
   puts "=> Total de #{counter} PR"
 end
 
-report
+report(parse_options(ARGV))
