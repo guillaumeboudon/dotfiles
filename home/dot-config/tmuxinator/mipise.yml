@@ -6,7 +6,6 @@ windows:
       root: <%= ENV["CODE_ROOT"] %>/mipise/mipise
       layout: main-vertical
       panes:
-        - v
         -
         -
 
@@ -14,14 +13,14 @@ windows:
       root: <%= ENV["CODE_ROOT"] %>/mipise/mps
       layout: main-vertical
       panes:
-        - v
+        -
         -
 
   - mira:
       root: <%= ENV["CODE_ROOT"] %>/mipise/mira
       layout: main-vertical
       panes:
-        - v
+        -
         -
 
   - dotfiles:
