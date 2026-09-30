@@ -77,6 +77,8 @@
   show table: set par(justify: false)
   show table.cell.where(align: auto): set align(left)
   show figure.where(kind: table): set block(breakable: true)
+  show figure.where(kind: table): set align(left)
+  show figure.where(kind: table): it => { show align: a => a.body; it } // pandoc wraps tables in align(center)
   show table.cell.where(y: 0): set text(weight: "bold", fill: dark)
 
   if title != none {
