@@ -67,6 +67,8 @@
   })).join()
   show quote.where(block: true): it => block(above: 16pt, below: 16pt, stroke: (left: 2pt + blue), inset: (left: 12pt, y: 2pt), text(fill: quote-grey, it.body))
 
+  show divider: block(above: 24pt, below: 24pt, line(length: 100%, stroke: 0.75pt + blue))
+
   show raw: set text(font: code-font, size: 10pt)
   show raw.where(block: true): set par(justify: false)
   show raw.where(block: true): block.with(fill: code-bg, stroke: (left: 2pt + blue), inset: 10pt, radius: 2pt, width: 100%)
