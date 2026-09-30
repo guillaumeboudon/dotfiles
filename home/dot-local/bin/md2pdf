@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+# Markdown to PDF with company style: md2pdf FILE.md [pandoc args, e.g. --toc]
+# Prints the path of the generated PDF on success.
+
+if [[ -z "$1" ]]; then
+  echo "Usage: md2pdf FILE.md [pandoc args]" >&2
+  exit 1
+fi
+
+pdf="${${1:A}%.md}.pdf"
+assets="${XDG_CONFIG_HOME:-$HOME/.config}/md2pdf"
+
+pandoc "$1" -o "$pdf" \
+  -f markdown+emoji+mark+autolink_bare_uris --columns=1000 \
+  --pdf-engine=typst --syntax-highlighting=idiomatic \
+  --pdf-engine-opt=--root=/ --pdf-engine-opt=--input=assets="$assets" \
+  -H "$assets/charte.typ" "${@:2}" \
+  && echo "$pdf"
