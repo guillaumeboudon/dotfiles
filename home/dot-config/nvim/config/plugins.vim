@@ -14,7 +14,6 @@ Plug 'godlygeek/tabular'
 Plug 'google/vim-searchindex'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'ryanoasis/vim-devicons'
 Plug 'lambdalisue/fern.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'sirver/UltiSnips'
@@ -28,7 +27,6 @@ Plug 'dense-analysis/ale'
 
 " > Syntax
 " ------------------------------------------------------------------------------
-" Plug 'lmeijvogel/vim-yaml-helper', { 'for': 'yaml' }
 Plug 'elmcast/elm-vim'
 Plug 'ledger/vim-ledger'
 Plug 'tpope/vim-rails'

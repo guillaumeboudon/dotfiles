@@ -10,7 +10,6 @@ set backspace=indent,eol,start " Apply standard <BS>
 set clipboard=unnamed          " Use OSX clipboard
 set encoding=utf-8             " UTF-8 by default
 set ttimeoutlen=0              " Avoid delay on escape
-" set formatoptions-=ro        " Ne pas auto-commenter au passage de ligne
 set hidden                     " Enable modified buffers to be hidden
 set nowrap                     " Don't wrap long lines
 set linebreak                  " Casse les longues lignes par mot, pas par caractère
@@ -62,7 +61,6 @@ set writebackup                " Active le backup pendant la sauvegarde
 set noswapfile                 " Désactive les fichiers swap
 set undofile                   " Active les fichers undo
 set backupdir=~/.cache/vim/backups " Dossier pour les backups
-"set directory=~/.cache/vim/swaps " Dossier pour les fichiers swap
 set undodir=~/.cache/vim/undos " Dossier pour les undos
 set tags^=.tags;               " Set tags file
 

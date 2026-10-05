@@ -2,17 +2,8 @@
 " > Mapping BÉPO
 " ──────────────────────────────────────────────────────────────────────────────
 
-" {W} -> [É]
-" ——————————
-" " On remappe W sur É :
-" noremap é w
-" noremap É W
-" " Corollaire: on remplace les text objects aw, aW, iw et iW
-" " pour effacer/remplacer un mot quand on n’est pas au début (daé / laé).
-" onoremap aé aw
-" onoremap aÉ aW
-" onoremap ié iw
-" onoremap iÉ iW
+" {W}
+" ———
 " Pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
 noremap w <C-w>
 noremap W <C-w><C-w>
@@ -23,8 +14,6 @@ noremap W <C-w><C-w>
 noremap c h
 noremap r l
 " {ts} = « haut / bas »
-" noremap t gj
-" noremap s gk
 noremap t j
 noremap s k
 " {CR} = « haut / bas de l'écran »
@@ -83,5 +72,3 @@ noremap wr <C-w>l
 noremap wd <C-w>c
 noremap wo <C-w>s
 noremap wp <C-w>o
-" noremap w<SPACE> :split<CR>
-" noremap w<CR> :vsplit<CR>

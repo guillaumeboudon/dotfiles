@@ -30,19 +30,7 @@ let g:ledger_default_commodity = "€"
 let g:ledger_commodity_before = 0
 let g:ledger_commodity_sep = " "
 let g:ledger_date_format = "%Y-%m-%d"
-" let g:ledger_align_at = 78
-" let g:ledger_align_commodity = 1
-"
-" au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 autocmd FileType ledger noremap { ?^\d<CR>
-
-" noremap blah1 :silent make | redraw! | cwindow
-" noremap blah2 :call ledger#transaction_date_set(".", "primary")
-" noremap blah3 :call ledger#transaction_state_toggle(line("."), " *?!")
-" noremap blah4 :LedgerAlign
-
-" let g:ledger_maxwidth = 120
-" let g:ledger_fold_blanks = 1
 
 function! LedgerAlignAll()
   let save_pos = getpos(".")
@@ -59,9 +47,6 @@ function! LedgerSort()
   call setpos(".", save_pos)
 endfunction
 command! LedgerSort call LedgerSort()
-
-" CSS
-" autocmd BufWritePre,FileWritePre *.css,*.scss :%!csscomb
 
 augroup my_autocommands
 " Reset all autocommands
@@ -102,11 +87,6 @@ endfunction
 
 " Resize panes when window/terminal gets resize
 autocmd VimResized * :wincmd =
-
-" autocmd FileType qf setlocal wrap
-" autocmd FileType qf wincmd J
-" autocmd FileType qf nmap <buffer> q :q<cr>
-" autocmd FileType qf setlocal number nolist
 
 autocmd FileType markdown setlocal spelllang=fr,en
 function! FzfSpellSink(word)

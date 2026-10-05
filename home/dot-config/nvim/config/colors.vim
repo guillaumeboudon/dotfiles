@@ -32,15 +32,7 @@ call Base16hi("MiniHipatternsHack",  g:base16_gui00, g:base16_gui09, g:base16_ct
 call Base16hi("MiniHipatternsTodo",  g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "bold", "")
 call Base16hi("MiniHipatternsNote",  g:base16_gui00, g:base16_gui0C, g:base16_cterm00, g:base16_cterm0C, "bold", "")
 
-" Gruvbox
-" set background=dark
 set termguicolors
-" " let g:gruvbox_contrast_dark='hard'
-" " let g:gruvbox_sign_column='bg0'
-" let g:gruvbox_number_column='bg1'
-" " let g:gruvbox_italic=1
-" let g:gruvbox_invert_selection=0
-" colorscheme gruvbox
 
 " Make trailing spaces very visible
 highlight ExtraWhitespace ctermfg=235 ctermbg=172 guifg=#282828 guibg=#d79921

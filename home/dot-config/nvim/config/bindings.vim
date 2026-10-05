@@ -5,21 +5,9 @@ let maplocalleader = "é"
 " Mouvements de pages
 noremap s gk
 noremap t gj
-" noremap C 20h
 noremap <C-t> 10j
 noremap <C-s> 10k
-" noremap R 20l
 noremap ' `
-" nnoremap <C-t> <C-W><C-J>
-" nnoremap <C-s> <C-W><C-K>
-" nnoremap <C-r> <C-W><C-L>
-" nnoremap <C-c> <C-W><C-H>
-
-" Always apply 'very magic'
-" nnoremap /  /\v
-" nnoremap ?  ?\v
-" cnoremap %s %s/\v//g<Left><Left><Left>
-" cnoremap %g %g/\v//g<Left><Left><Left>
 
 " Make Y behave like D or C
 nnoremap Y y$
@@ -58,7 +46,6 @@ nmap yS  <Plug>YSurround
 nmap yss <Plug>Yssurround
 nmap ySs <Plug>YSsurround
 nmap ySS <Plug>YSsurround
-" xmap <Leader>s    <Plug>Vsurround
 xmap S   <Plug>VSurround
 xmap gS  <Plug>VgSurround
 
