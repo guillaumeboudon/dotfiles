@@ -38,7 +38,10 @@ set termguicolors
 highlight ExtraWhitespace ctermfg=235 ctermbg=172 guifg=#282828 guibg=#d79921
 let extraWhiteSpaceBlacklist = ['nvim-undotree', '']
 match ExtraWhiteSpace /\s\+$/
-autocmd BufWinEnter * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+$/
-autocmd InsertEnter * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+\%#\@<!$/
-autocmd InsertLeave * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+augroup extra_whitespace
+  autocmd!
+  autocmd BufWinEnter * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+$/
+  autocmd InsertEnter * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+\%#\@<!$/
+  autocmd InsertLeave * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+$/
+  autocmd BufWinLeave * call clearmatches()
+augroup END

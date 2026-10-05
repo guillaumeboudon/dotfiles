@@ -27,14 +27,18 @@ let g:ledger_default_commodity = "€"
 let g:ledger_commodity_before = 0
 let g:ledger_commodity_sep = " "
 let g:ledger_date_format = "%Y-%m-%d"
-autocmd FileType ledger noremap { ?^\d<CR>
 
 function! LedgerAlignAll()
   let save_pos = getpos(".")
   :%LedgerAlign
   call setpos(".", save_pos)
 endfunction
-autocmd BufWritePre *.ledger call LedgerAlignAll()
+
+augroup ledger
+  autocmd!
+  autocmd FileType ledger noremap { ?^\d<CR>
+  autocmd BufWritePre *.ledger call LedgerAlignAll()
+augroup END
 
 function! LedgerSort()
   let save_pos = getpos(".")
