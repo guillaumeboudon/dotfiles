@@ -48,6 +48,12 @@ let g:lightline = {
 \   }
 \ }
 
+" Refresh the linter counts when ALE runs (component_expand is not re-evaluated otherwise)
+augroup lightline_ale
+  autocmd!
+  autocmd User ALEJobStarted,ALELintPost,ALEFixPost call lightline#update()
+augroup END
+
 function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
