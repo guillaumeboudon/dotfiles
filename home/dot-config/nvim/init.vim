@@ -9,9 +9,6 @@
 " > https://github.com/guillaumeboudon/dotfiles
 
 
-for s:before_file in glob('~/.config/nvim/before/*.vim', 0, 1)
-  execute 'source' s:before_file
-endfor
 source ~/.config/nvim/config/plugins.vim
 source ~/.config/nvim/config/settings.vim
 source ~/.config/nvim/config/colors.vim
