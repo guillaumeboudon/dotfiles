@@ -21,7 +21,6 @@ Plug 'dense-analysis/ale'
 " > Syntax
 " ------------------------------------------------------------------------------
 Plug 'ledger/vim-ledger'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': ['tex', 'plaintex'] }
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
 Plug 'nvim-mini/mini.hipatterns'
 

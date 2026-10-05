@@ -68,8 +68,6 @@ augroup END
 " > Grrrrrrrr, À classer !
 " ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-let g:tex_flavor = "latex"
-
 function! GoToTag() abort
   let l:cword = expand('<cword>')
   let l:count = len(taglist('^' . escape(l:cword, '\.*$^~[]') . '$'))
