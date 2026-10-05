@@ -15,7 +15,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lambdalisue/fern.vim'
 Plug 'sirver/UltiSnips'
-Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
@@ -24,7 +23,6 @@ Plug 'dense-analysis/ale'
 
 " > Syntax
 " ------------------------------------------------------------------------------
-Plug 'elmcast/elm-vim'
 Plug 'ledger/vim-ledger'
 Plug 'tpope/vim-rails'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': ['tex', 'plaintex'] }
