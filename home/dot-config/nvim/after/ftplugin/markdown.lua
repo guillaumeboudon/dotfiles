@@ -1,3 +1,9 @@
+-- Indentation à 4 et correction orthographique en français et en anglais
+vim.bo.tabstop = 4
+vim.bo.softtabstop = 4
+vim.bo.shiftwidth = 4
+vim.bo.spelllang = 'fr,en'
+
 -- Surcouches mini.hipatterns spécifiques au markdown : motifs hors CommonMark
 -- (donc non capturés par tree-sitter). Conventions perso façon todo.txt + URL brutes.
 -- Les groups réutilisés (Statement/Keyword/Constant/Label) sont colorisés par le

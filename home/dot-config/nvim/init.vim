@@ -27,11 +27,6 @@ autocmd!
 
 autocmd BufNewFile,BufRead .gemrc set filetype=yaml
 
-autocmd Filetype elm      setlocal tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype todo     setlocal tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
-autocmd FileType markdown setlocal spelllang=fr,en
-
 " Highlighting selection on yank
 autocmd TextYankPost * silent! lua vim.hl.on_yank()
 
