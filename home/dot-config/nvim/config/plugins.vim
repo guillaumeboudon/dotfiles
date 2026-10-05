@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " ------------------------------------------------------------------------------
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " > General enhancements
