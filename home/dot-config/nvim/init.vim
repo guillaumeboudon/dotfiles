@@ -56,7 +56,7 @@ autocmd Filetype todo     setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
 
 " Highlighting selection on yank
-autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+autocmd TextYankPost * silent! lua vim.hl.on_yank()
 
 " Avoid the W16 warning on :w on kDrive-synced Wiki files
 autocmd BufWritePost ~/kDrive/Documents/Wiki/* call timer_start(2500, {-> execute('silent! checktime')})
