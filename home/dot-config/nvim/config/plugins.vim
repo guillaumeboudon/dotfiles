@@ -11,7 +11,6 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " ------------------------------------------------------------------------------
 Plug 'fcpg/vim-waikiki'
 Plug 'godlygeek/tabular'
-Plug 'google/vim-searchindex'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lambdalisue/fern.vim'
