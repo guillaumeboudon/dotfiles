@@ -14,7 +14,6 @@ Plug 'godlygeek/tabular'
 Plug 'google/vim-searchindex'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'qpkorr/vim-bufkill'
 " Plug 'ryanoasis/vim-devicons'
 Plug 'lambdalisue/fern.vim'
 Plug 'simnalamburt/vim-mundo'
