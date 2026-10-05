@@ -26,15 +26,15 @@ function! s:init_fern() abort
       \ )
 
   nmap <buffer><nowait> <Return> <Plug>(fern-my-open-or-expand-or-collapse)
-  nmap <buffer> . <Plug>(fern-action-hidden:toggle)
-  nmap <buffer> c <Plug>(fern-action-collapse)
-  nmap <buffer> D <Plug>(fern-action-remove)
-  nmap <buffer> d <Plug>(fern-action-trash)
-  nmap <buffer> m <Plug>(fern-action-move)
-  nmap <buffer> n <Plug>(fern-action-new-path)
-  nmap <buffer> r <Plug>(fern-my-expand-or-open)
-  nmap <buffer> u <Plug>(fern-action-leave)
-  nmap <buffer> y <Plug>(fern-action-copy)
+  nmap <buffer><nowait> . <Plug>(fern-action-hidden:toggle)
+  nmap <buffer><nowait> c <Plug>(fern-action-collapse)
+  nmap <buffer><nowait> D <Plug>(fern-action-remove)
+  nmap <buffer><nowait> d <Plug>(fern-action-trash)
+  nmap <buffer><nowait> m <Plug>(fern-action-move)
+  nmap <buffer><nowait> n <Plug>(fern-action-new-path)
+  nmap <buffer><nowait> r <Plug>(fern-my-expand-or-open)
+  nmap <buffer><nowait> u <Plug>(fern-action-leave)
+  nmap <buffer><nowait> y <Plug>(fern-action-copy)
 endfunction
 
 augroup fern_autocmds
