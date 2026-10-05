@@ -20,7 +20,7 @@ nmap <Leader>gh :GHBrowse<CR>
 xmap <Leader>gh :GHBrowse<CR>
 nmap <Leader>gc :GHBrowseCommit<CR>
 nmap <Leader>h :call GoToTag()<CR>
-nmap <Leader>j :Rg <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>j :Rg <C-R><C-W><CR>
 nmap <Leader>k :Fern . -drawer -toggle<CR>
 nmap <Leader>l :Fern . -drawer -toggle -reveal=%<CR>
 nmap <Leader>m :Inspect<CR>
