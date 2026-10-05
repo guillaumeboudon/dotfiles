@@ -24,6 +24,7 @@ nmap <Leader>f :Rg<Space>
 nmap <Leader>gb :Git blame<CR>
 nmap <Leader>gh :GHBrowse<CR>
 xmap <Leader>gh :GHBrowse<CR>
+nmap <Leader>gc :GHBrowseCommit<CR>
 nmap <Leader>h :call GoToTag()<CR>
 nmap <Leader>j :Rg <C-R>=expand("<cword>")<CR><CR>
 nmap <Leader>k :Fern . -drawer -toggle<CR>
@@ -62,3 +63,16 @@ command! Wq wq
 
 " Open the current line (or selected lines) on GitHub, at the last commit
 command! -range GHBrowse execute 'silent !gh browse -c ' . shellescape(expand('%:.') . ':' . <line1> . (<line2> != <line1> ? '-' . <line2> : ''), 1)
+
+" Open on GitHub the commit that last changed the current line
+function! s:BrowseLineCommit() abort
+  let l:dir = shellescape(expand('%:p:h'))
+  let l:blame = system('git -C ' . l:dir . ' blame --porcelain -L ' . line('.') . ',+1 -- ' . shellescape(expand('%:p')))
+  let l:sha = matchstr(l:blame, '^\x\{40}')
+  if empty(l:sha) || l:sha =~# '^0\+$'
+    echo 'No commit for this line (not committed yet, or not in a git repository)'
+    return
+  endif
+  call system('cd ' . l:dir . ' && gh browse ' . l:sha)
+endfunction
+command! GHBrowseCommit call s:BrowseLineCommit()
