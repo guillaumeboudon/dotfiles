@@ -52,14 +52,12 @@ augroup END
 
 function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d Δ', all_non_errors)
+  let l:warnings = l:counts.total - l:counts.error - l:counts.style_error
+  return l:counts.total == 0 ? '' : printf('%d Δ', l:warnings)
 endfunction
 
 function! LightlineLinterErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ✘', all_errors)
+  let l:errors = l:counts.error + l:counts.style_error
+  return l:counts.total == 0 ? '' : printf('%d ✘', l:errors)
 endfunction
