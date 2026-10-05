@@ -70,12 +70,12 @@ augroup END
 
 let g:tex_flavor = "latex"
 
-function! GoToTag ()
+function! GoToTag() abort
   let l:cword = expand('<cword>')
-  let l:matches = system("cat .tags | rg -w '^'" . l:cword . "'\t' | wc -l | awk '{print $1}'")
-  if l:matches =~ "0"
+  let l:count = len(taglist('^' . escape(l:cword, '\.*$^~[]') . '$'))
+  if l:count == 0
     exe "Rg" l:cword
-  elseif l:matches =~ "1"
+  elseif l:count == 1
     exe "tag" l:cword
   else
     exe "Tags" "'" . l:cword
