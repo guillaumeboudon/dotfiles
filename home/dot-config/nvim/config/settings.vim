@@ -83,3 +83,4 @@ set wildmode=full              " Command-line completion settings
 " ------------------------------------------------------------------------------
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
