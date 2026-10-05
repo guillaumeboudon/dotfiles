@@ -29,9 +29,13 @@ nmap <Leader>h :call GoToTag()<CR>
 nmap <Leader>j :Rg <C-R>=expand("<cword>")<CR><CR>
 nmap <Leader>k :Fern . -drawer -toggle<CR>
 nmap <Leader>l :Fern . -drawer -toggle -reveal=%<CR>
+map <Leader>m :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 nmap <Leader>n :noh<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>s :setlocal spell!<CR>
+nnoremap z= :call FzfSpell()<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>u :Undotree<CR>
 nmap <Leader>z :setlocal foldenable!<CR>:setlocal foldenable?<CR>

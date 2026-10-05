@@ -45,6 +45,10 @@ function! LedgerSort()
 endfunction
 command! LedgerSort call LedgerSort()
 
+" ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+" > Autocommands
+" ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+
 augroup my_autocommands
 " Reset all autocommands
 autocmd!
@@ -54,48 +58,16 @@ autocmd BufNewFile,BufRead .gemrc set filetype=yaml
 autocmd Filetype elm      setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype todo     setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType markdown setlocal spelllang=fr,en
 
 " Highlighting selection on yank
 autocmd TextYankPost * silent! lua vim.hl.on_yank()
+
+" Resize panes when window/terminal gets resized
+autocmd VimResized * wincmd =
 
 " Avoid the W16 warning on :w on kDrive-synced Wiki files
 autocmd BufWritePost ~/kDrive/Documents/Wiki/* call timer_start(2500, {-> execute('silent! checktime')})
 autocmd FocusGained,BufEnter ~/kDrive/Documents/Wiki/* silent! checktime
 
 augroup END
-
-" ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
-" > Grrrrrrrr, À classer !
-" ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
-
-function! GoToTag() abort
-  let l:cword = expand('<cword>')
-  let l:count = len(taglist('^' . escape(l:cword, '\.*$^~[]') . '$'))
-  if l:count == 0
-    exe "Rg" l:cword
-  elseif l:count == 1
-    exe "tag" l:cword
-  else
-    exe "Tags" l:cword
-  endif
-endfunction
-
-" Resize panes when window/terminal gets resize
-autocmd VimResized * :wincmd =
-
-autocmd FileType markdown setlocal spelllang=fr,en
-function! FzfSpellSink(word)
-  exe 'normal! "_ciw'.a:word
-endfunction
-function! FzfSpell()
-  let suggestions = spellsuggest(expand("<cword>"))
-  return fzf#run({'source': suggestions, 'sink': function("FzfSpellSink"), 'down': 10 })
-endfunction
-nnoremap z= :call FzfSpell()<CR>
-
-
-map <Leader>m :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-silent! nohlsearch
