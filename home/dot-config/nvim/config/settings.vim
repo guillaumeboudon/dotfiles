@@ -33,7 +33,6 @@ set softtabstop=2              " Largeur d'une indentation en mode 'normal'
 " ------------------------------------------------------------------------------
 set ignorecase                 " ignore la casse lors de la recherche
 set smartcase                  " casse intelligente lors de la recherche
-silent! nohlsearch
 
 " > Backups et Swaps
 " ------------------------------------------------------------------------------
