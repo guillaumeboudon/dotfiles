@@ -36,7 +36,7 @@ endfunction
 
 augroup ledger
   autocmd!
-  autocmd FileType ledger noremap { ?^\d<CR>
+  autocmd FileType ledger noremap <buffer> { ?^\d<CR>
   autocmd BufWritePre *.ledger call LedgerAlignAll()
 augroup END
 
