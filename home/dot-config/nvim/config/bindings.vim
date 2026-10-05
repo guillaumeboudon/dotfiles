@@ -16,7 +16,6 @@ nnoremap Y y$
 nmap ’ :Buffers<CR>
 nmap - :Fern %:h<CR>
 nmap <Space> za
-nmap <Leader><Space> :noh<CR>
 nmap <Leader><Tab> :b#<CR>
 nmap <Leader>a :!echo -n % \| pbcopy<CR><CR>
 nmap <Leader>b :setlocal wrap!<CR>:setlocal wrap?<CR>
