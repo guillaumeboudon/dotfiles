@@ -15,7 +15,7 @@ nmap ’ :Buffers<CR>
 nmap - :Fern %:h<CR>
 nmap <Space> za
 nmap <Leader><Tab> :b#<CR>
-nmap <Leader>a :!echo -n % \| pbcopy<CR><CR>
+nmap <Leader>a :let @* = expand('%')<CR>
 nmap <Leader>b :setlocal wrap!<CR>:setlocal wrap?<CR>
 nmap <Leader>f :Rg<Space>
 nmap <Leader>gb :Git blame<CR>
