@@ -78,7 +78,7 @@ function! GoToTag() abort
   elseif l:count == 1
     exe "tag" l:cword
   else
-    exe "Tags" "'" . l:cword
+    exe "Tags" l:cword
   endif
 endfunction
 
