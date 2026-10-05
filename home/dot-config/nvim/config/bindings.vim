@@ -7,9 +7,6 @@ noremap <C-t> 10j
 noremap <C-s> 10k
 noremap ' `
 
-" Make Y behave like D or C
-nnoremap Y y$
-
 " Bindings
 nmap ’ :Buffers<CR>
 nmap - :Fern %:h<CR>
