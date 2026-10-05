@@ -36,7 +36,7 @@ set termguicolors
 
 " Make trailing spaces very visible
 highlight ExtraWhitespace ctermfg=235 ctermbg=172 guifg=#282828 guibg=#d79921
-let extraWhiteSpaceBlacklist = ['Mundo', '']
+let extraWhiteSpaceBlacklist = ['nvim-undotree', '']
 match ExtraWhiteSpace /\s\+$/
 autocmd BufWinEnter * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+$/
 autocmd InsertEnter * if index(extraWhiteSpaceBlacklist, &ft) < 0 | match ExtraWhiteSpace /\s\+\%#\@<!$/

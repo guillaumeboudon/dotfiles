@@ -30,7 +30,7 @@ nmap <Leader>n :noh<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>s :setlocal spell!<CR>
 nmap <Leader>t :Files<CR>
-nmap <Leader>u :MundoToggle<CR>
+nmap <Leader>u :Undotree<CR>
 nmap <Leader>z :setlocal foldenable!<CR>:setlocal foldenable?<CR>
 
 nmap <LocalLeader>w :e ~/kDrive/Documents/Wiki/index.md<CR>

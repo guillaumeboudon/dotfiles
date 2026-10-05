@@ -14,7 +14,6 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lambdalisue/fern.vim'
-Plug 'simnalamburt/vim-mundo'
 Plug 'sirver/UltiSnips'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-fugitive'
@@ -33,6 +32,8 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
 Plug 'nvim-mini/mini.hipatterns'
 
 call plug#end()
+
+packadd nvim.undotree
 
 " > Lightline
 " ------------------------------------------------------------------------------
