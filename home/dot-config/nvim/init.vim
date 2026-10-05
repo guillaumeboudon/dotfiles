@@ -25,8 +25,6 @@ augroup my_autocommands
 " Reset all autocommands
 autocmd!
 
-autocmd BufNewFile,BufRead .gemrc set filetype=yaml
-
 " Highlighting selection on yank
 autocmd TextYankPost * silent! lua vim.hl.on_yank()
 
