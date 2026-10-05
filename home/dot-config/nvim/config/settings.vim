@@ -46,7 +46,7 @@ set tags^=.tags;               " Set tags file
 " > Folding
 " ------------------------------------------------------------------------------
 set nofoldenable               " Folding désactivé par défaut
-set foldmethod=marker          " Folding selon l'indentation
+set foldmethod=marker          " Folding selon les marqueurs {{{ / }}}
 set foldlevelstart=99          " Démarrer sans indentation
 
 " > Completion
