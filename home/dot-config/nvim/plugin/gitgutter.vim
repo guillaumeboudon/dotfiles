@@ -7,3 +7,6 @@ let g:gitgutter_sign_modified_removed = '▌'
 " files with spaces in their path raise "unable to list renamed files" (e.g. when
 " fugitive reblames at an older commit). Without rename detection it lists none.
 let g:gitgutter_git_args = '-c diff.renames=false'
+
+" Drop the default hunk maps: unused, and their <Leader>h* prefix delays <Leader>h
+let g:gitgutter_map_keys = 0
