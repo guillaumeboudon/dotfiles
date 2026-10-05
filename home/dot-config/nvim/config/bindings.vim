@@ -22,6 +22,8 @@ nmap <Leader>a :!echo -n % \| pbcopy<CR><CR>
 nmap <Leader>b :setlocal wrap!<CR>:setlocal wrap?<CR>
 nmap <Leader>f :Rg<Space>
 nmap <Leader>gb :Git blame<CR>
+nmap <Leader>gh :GHBrowse<CR>
+xmap <Leader>gh :GHBrowse<CR>
 nmap <Leader>h :call GoToTag()<CR>
 nmap <Leader>j :Rg <C-R>=expand("<cword>")<CR><CR>
 nmap <Leader>k :Fern . -drawer -toggle<CR>
@@ -57,3 +59,6 @@ let g:surround_187 = "« \r »"
 command! Q q
 command! W w
 command! Wq wq
+
+" Open the current line (or selected lines) on GitHub, at the last commit
+command! -range GHBrowse execute 'silent !gh browse -c ' . shellescape(expand('%:.') . ':' . <line1> . (<line2> != <line1> ? '-' . <line2> : ''), 1)
