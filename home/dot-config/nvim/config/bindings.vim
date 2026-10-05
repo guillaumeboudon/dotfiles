@@ -3,8 +3,6 @@ let mapleader = ","
 let maplocalleader = "é"
 
 " Mouvements de pages
-noremap s gk
-noremap t gj
 noremap <C-t> 10j
 noremap <C-s> 10k
 noremap ' `

@@ -14,8 +14,8 @@ noremap W <C-w><C-w>
 noremap c h
 noremap r l
 " {ts} = « haut / bas »
-noremap t j
-noremap s k
+noremap t gj
+noremap s gk
 " {CR} = « haut / bas de l'écran »
 noremap C H
 noremap R L
