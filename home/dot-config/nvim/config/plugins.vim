@@ -10,7 +10,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 " ------------------------------------------------------------------------------
 Plug 'fcpg/vim-waikiki'
 Plug 'godlygeek/tabular'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'lambdalisue/fern.vim'
 Plug 'tpope/vim-fugitive'
