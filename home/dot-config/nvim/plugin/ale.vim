@@ -7,7 +7,6 @@ let g:ale_fix_on_save = 1
 let g:ale_virtualtext_cursor = "disabled"
 
 let g:ale_linters = {
-\   "elixir": ["credo"],
 \   "elm": ["make"],
 \   "eruby": ["erblint"],
 \   "haml": ["hamllint"],
