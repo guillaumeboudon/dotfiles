@@ -59,7 +59,7 @@ _try_source() {
 # Helpers
 # ------------------------------------------------------------------------------
 _try_source_plugin() {
-  _try_source $(brew --prefix)/share/$1/$1.zsh && return 0
+  _try_source $HOMEBREW_PREFIX/share/$1/$1.zsh && return 0
   _try_source /usr/share/zsh/plugins/$1/$1.zsh && return 0
   echo "$1 not installed" >&2
   return 1
@@ -97,6 +97,10 @@ export LC_MESSAGES="POSIX" # Set POSIX for commands messages
 # ------------------------------------------------------------------------------
 export HOSTNAME="$(uname -n)"
 export HOSTTYPE="$(uname -s)"
+
+# Homebrew (set by `brew shellenv` in login shells; `brew --prefix` is slow)
+# ------------------------------------------------------------------------------
+[ -z "$HOMEBREW_PREFIX" ] && _has brew && export HOMEBREW_PREFIX="$(brew --prefix)"
 
 # Ensure XDG Specs
 # ------------------------------------------------------------------------------
@@ -254,13 +258,13 @@ ydp() { yda "https://www.youtube.com/playlist?list=$1" }
 # z
 # ------------------------------------------------
 export _Z_DATA="$XDG_DATA_HOME/z"
-_try_source $(brew --prefix)/etc/profile.d/z.sh
+_try_source $HOMEBREW_PREFIX/etc/profile.d/z.sh
 
 
 # > PATH {{{1
 # ==============================================================================
 
-# _force_prepend_to_path "$(brew --prefix)/opt/coreutils/libexec/gnubin"
+# _force_prepend_to_path "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"
 _force_prepend_to_path "$HOME/.local/bin"
 _force_prepend_to_path "$HOME/.yarn/bin"
 _prepend_to_path "/opt/homebrew/opt/postgresql@17/bin"
@@ -292,7 +296,7 @@ alias mz="cmus-remote -S"   # Shuffle
 
 alias v="nvim"
 alias vimdiff="nvim -d"
-alias vi="$(brew --prefix)/bin/vim"
+alias vi="$HOMEBREW_PREFIX/bin/vim"
 
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias mux="tmuxinator"
