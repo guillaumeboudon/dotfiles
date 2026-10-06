@@ -41,7 +41,7 @@
 # Check if a command is executable or aliased
 # ------------------------------------------------------------------------------
 _has() {
-  return $(command -v $1 &>/dev/null)
+  command -v "$1" >/dev/null
 }
 
 # Source a file if it exists
