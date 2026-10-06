@@ -1,4 +1,4 @@
-let g:ledger_extra_options = "--pedantic --explicit --check_payees"
+let g:ledger_extra_options = "--strict"
 let g:ledger_default_commodity = "€"
 let g:ledger_commodity_before = 0
 let g:ledger_commodity_sep = " "
