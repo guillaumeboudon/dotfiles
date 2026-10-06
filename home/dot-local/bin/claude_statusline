@@ -33,6 +33,25 @@ gauge() {
   printf '%s%s %s%s %s%%%s' "$white" "$label" "$(level_color "$pct")" "$bar" "$pct" "$reset_color"
 }
 
+# Effort in the colors of Claude Code's /effort picker: low yellow, medium green,
+# high blue, xhigh magenta, max bold rainbow (one color per letter)
+effort_label() {
+  local rainbow=(31 '38;5;16' 33 32 36 34 35) i out=""
+  case $1 in
+    low)    printf '\033[33m%s' "$1" ;;
+    medium) printf '\033[32m%s' "$1" ;;
+    high)   printf '\033[34m%s' "$1" ;;
+    xhigh)  printf '\033[35m%s' "$1" ;;
+    max)
+      for (( i = 0; i < ${#1}; i++ )); do
+        out+="\033[1;${rainbow[i % 7]}m${1:i:1}"
+      done
+      printf '%b' "$out" ;;
+    *)      printf '%s%s' "$white" "$1" ;;
+  esac
+  printf '%s' "$reset_color"
+}
+
 # Path: git project name, or ~-relative path with /.../ when deeper than 5 parts
 location() {
   local top branch path parts
@@ -49,7 +68,7 @@ location() {
   printf '%s%s%s' "$cyan" "$path" "$reset_color"
 }
 
-out="$(location)${sep}${white}${model}${effort:+ ($effort)}${reset_color}"
+out="$(location)${sep}${white}${model}${reset_color}${effort:+ ${white}(${reset_color}$(effort_label "$effort")${white})${reset_color}}"
 out+="${sep}$(gauge Ctx "$ctx")"
 
 if [[ -n $quota ]]; then
