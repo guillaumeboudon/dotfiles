@@ -11,15 +11,21 @@
 2. Install Homebrew from https://brew.sh/
 3. Install applications: `brew bundle`
 4. Set dotfiles: `stow --dotfiles --no-folding --ignore='\.DS_Store' home`
-5. Install z: `mkdir -p ~/.local/share && touch ~/.local/share/z`
-6. Install ruby:
+5. Install Neovim plugins (vim-plug, then the plugins of `config/plugins.vim`):
+    ```shell
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    nvim +PlugInstall +qall
+    ```
+6. Install z: `mkdir -p ~/.local/share && touch ~/.local/share/z`
+7. Install ruby:
     ```shell
     rbenv install -l
     rbenv install <version>
     rbenv global <version>
     ```
-7. Install global gems: `bundle install`
-8. Install Python packages (pyenv global version): `pip install mutagen` (used by `ptags` and `retag`)
+8. Install global gems: `bundle install`
+9. Install Python packages (pyenv global version): `pip install mutagen` (used by `ptags` and `retag`)
 
 ## Colors (base16)
 
