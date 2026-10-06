@@ -11,21 +11,27 @@
 2. Install Homebrew from https://brew.sh/
 3. Install applications: `brew bundle`
 4. Set dotfiles: `stow --dotfiles --no-folding --ignore='\.DS_Store' home`
-5. Install Neovim plugins (vim-plug, then the plugins of `config/plugins.vim`):
+5. Link Karabiner config: Karabiner only reloads `karabiner.json` through a
+   directory symlink, so `.stowrc` excludes it from stow (move any existing
+   `~/.config/karabiner` away first):
+    ```shell
+    ln -s ../.dotfiles/home/dot-config/karabiner ~/.config/karabiner
+    ```
+6. Install Neovim plugins (vim-plug, then the plugins of `config/plugins.vim`):
     ```shell
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     nvim +PlugInstall +qall
     ```
-6. Install z: `mkdir -p ~/.local/share && touch ~/.local/share/z`
-7. Install ruby:
+7. Install z: `mkdir -p ~/.local/share && touch ~/.local/share/z`
+8. Install ruby:
     ```shell
     rbenv install -l
     rbenv install <version>
     rbenv global <version>
     ```
-8. Install global gems: `bundle install`
-9. Install Python packages (pyenv global version): `pip install mutagen` (used by `ptags` and `retag`)
+9. Install global gems: `bundle install`
+10. Install Python packages (pyenv global version): `pip install mutagen` (used by `ptags` and `retag`)
 
 ## Colors (base16)
 
