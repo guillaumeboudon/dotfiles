@@ -163,7 +163,7 @@ unsetopt AUTO_CD # Explicitely type `cd` commands
 # ------------------------------------------------------------------------------
 source "$XDG_CONFIG_HOME/base16/current.sh"
 
-source "$CODE_ROOT/guillaumeboudon/base16-scripts/scripts/shell.sh"
+source "$XDG_CONFIG_HOME/base16/terminal.sh"
 
 # grep
 # ------------------------------------------------------------------------------
