@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# Call this script this way: `m_report 2019-11 22`, with:
+# Call this script this way: `w_summary 2019-11 22`, with:
 #   - 2019-11 the month to be reported
 #   - 22      the number of working days
 
