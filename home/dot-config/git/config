@@ -35,7 +35,7 @@
   remove-merged = "!git list-merged | xargs git branch -d"
   wip = "for-each-ref --sort='-authordate:iso8601' --format='%(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads"
   contributors = "shortlog --summary --numbered"
-  ctags = "!.git/hooks/ctags"
+  ctags = "!~/.dotfiles/resources/git_hooks/ctags-ruby"
 
 [core]
   autocrlf = "input"
