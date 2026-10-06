@@ -116,7 +116,6 @@ _editor() {
 
 # export BROWSER="firefox"
 export EDITOR="$(_editor)"
-export FILE="ranger"
 export PAGER="less"
 export VISUAL="$EDITOR"
 
