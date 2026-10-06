@@ -100,6 +100,7 @@ export HOSTNAME="$HOST"
 export XDG_DATA_HOME="$HOME/.local/share" # User specific data
 export XDG_CONFIG_HOME="$HOME/.config"    # User specific configuration
 export XDG_CACHE_HOME="$HOME/.cache"      # User specific non-essential data
+export XDG_STATE_HOME="$HOME/.local/state" # User specific state (history, logs)
 
 # Folders
 # ------------------------------------------------------------------------------
@@ -145,7 +146,7 @@ export IRBRC="$XDG_CONFIG_HOME/ruby/irbrc"
 
 # History
 # ------------------------------------------------------------------------------
-export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export HISTSIZE=10000
 export SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS # Do not overload history
