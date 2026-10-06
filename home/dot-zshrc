@@ -44,13 +44,13 @@ _has() {
   return $(command -v $1 &>/dev/null)
 }
 
-# Helpers
-# ------------------------------------------------
+# Source a file if it exists
+# ------------------------------------------------------------------------------
 _try_source() {
   [ -f $1 ] && . $1
 }
 
-# Helpers
+# Source a zsh plugin from Homebrew or the system plugin dir
 # ------------------------------------------------------------------------------
 _try_source_plugin() {
   _try_source $HOMEBREW_PREFIX/share/$1/$1.zsh && return 0
@@ -365,7 +365,6 @@ bindkey -M menuselect 'c' vi-backward-char
 bindkey -M menuselect 's' vi-up-line-or-history
 bindkey -M menuselect 'r' vi-forward-char
 bindkey -M menuselect 't' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
 # ------------------------------------------------------------------------------
@@ -386,7 +385,7 @@ zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` ha
 echo -ne "\e[5 q"
 }
 zle -N zle-line-init
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for the command about to run
 
 
 # > PLUGINS {{{1
