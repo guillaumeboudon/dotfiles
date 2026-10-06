@@ -211,7 +211,7 @@ export FZF_DEFAULT_OPTS=" \
   --preview '(bat {} || tree -C {}) 2>/dev/null | head -200' \
   --color=fg:#$BASE16_04,bg:-1,hl:#$BASE16_0D,fg+:#$BASE16_06,bg+:#$BASE16_01,hl+:#$BASE16_08,info:#$BASE16_0A,prompt:#$BASE16_0E,pointer:#$BASE16_0C,marker:#$BASE16_0C,spinner:#$BASE16_0C,header:#$BASE16_0D \
 "
-_try_source ~/.fzf.zsh
+_try_source "$XDG_CONFIG_HOME/fzf/fzf.zsh"
 
 # Ledger
 # ------------------------------------------------------------------------------
