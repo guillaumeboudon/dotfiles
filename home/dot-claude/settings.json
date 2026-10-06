@@ -74,22 +74,7 @@
           }
         ]
       }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/guillaume/code/claude-carbon/scripts/persist-session.sh"
-          }
-        ]
-      }
     ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "/Users/guillaume/code/claude-carbon/scripts/statusline.sh"
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
