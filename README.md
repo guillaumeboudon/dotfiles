@@ -20,6 +20,17 @@
     ```
 7. Install global gems: `bundle install`
 
+## Colors (base16)
+
+Palette: `home/dot-config/base16/current.sh` → `schemes/<name>.sh`, read by zsh
+(terminal colors, fzf) and nvim (theme, lightline).
+
+- Add a scheme: copy `base00`..`base0F` from a yaml of
+  https://github.com/tinted-theming/schemes (base16/) into `schemes/<name>.sh`,
+  then `stow` to link the new file.
+- Switch: `cd home/dot-config/base16 && ln -sfn schemes/<name>.sh current.sh`,
+  then open a new shell / restart nvim.
+
 ## Change key repeat on Mac OSX
 
 - My config
