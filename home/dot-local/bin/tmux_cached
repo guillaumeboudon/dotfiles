@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+# Usage: tmux_cached SECONDS COMMAND...
+# Print COMMAND output, rerun at most every SECONDS. The cache file is keyed on
+# the command line, so it is shared by every tmux client, session and server.
+
+ttl=$1; shift
+f=${TMPDIR:-/tmp}/tmux_cached_${${(j:_:)@}//[^[:alnum:]]/_}
+fresh=($f(Nms-$ttl))
+(( $#fresh )) || { "$@" >| $f.$$ && mv -f $f.$$ $f }
+<$f
