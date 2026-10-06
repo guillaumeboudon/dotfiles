@@ -3,23 +3,14 @@
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
 
-" GUI color definitions
-let g:base16_gui00 = $BASE16_00
-let g:base16_gui01 = $BASE16_01
-let g:base16_gui02 = $BASE16_02
-let g:base16_gui03 = $BASE16_03
-let g:base16_gui04 = $BASE16_04
-let g:base16_gui05 = $BASE16_05
-let g:base16_gui06 = $BASE16_06
-let g:base16_gui07 = $BASE16_07
-let g:base16_gui08 = $BASE16_08
-let g:base16_gui09 = $BASE16_09
-let g:base16_gui0A = $BASE16_0A
-let g:base16_gui0B = $BASE16_0B
-let g:base16_gui0C = $BASE16_0C
-let g:base16_gui0D = $BASE16_0D
-let g:base16_gui0E = $BASE16_0E
-let g:base16_gui0F = $BASE16_0F
+" GUI color definitions, read from the shared base16 palette (no env dependency)
+for s:line in readfile(stdpath('config') . '/../base16/current.sh')
+  let s:m = matchlist(s:line, '^export BASE16_\(\x\x\)="\(\x\{6}\)"')
+  if !empty(s:m)
+    let g:base16_gui{s:m[1]} = s:m[2]
+  endif
+endfor
+unlet s:line s:m
 
 " Terminal color definitions
 let g:base16_cterm00 = "00"
