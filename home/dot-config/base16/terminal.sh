@@ -2,6 +2,9 @@
 # base16-shell (https://github.com/chriskempson/base16-shell)
 # Base16 Shell template by Chris Kempson (http://chriskempson.com)
 
+# Only talk to a real terminal: escape codes would pollute pipes and captures
+[ -t 1 ] || return
+
 to_slash() { echo "${1:0:2}/${1:2:2}/${1:4:2}"; }
 
 color00="$(to_slash "$BASE16_00")" # Base 00 - Black
