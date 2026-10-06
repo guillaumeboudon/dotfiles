@@ -1,35 +1,60 @@
 #!/usr/bin/env bash
 
-# Claude Code status line: dir ⎇ branch · model · context % · 5h quota % (reset time)
+# Claude Code status line, styled like the starship prompt:
+#   .dotfiles  main | Opus 5.5 (high) | Ctx ▓▓▓░░░░░░░ 35% | Use ▓▓░░░░░░░░ 24% ↻19:30
 # Reads the session JSON on stdin (https://code.claude.com/docs/en/statusline).
 # Colors are ANSI 0-15, so they follow the base16 terminal palette.
 
-IFS=$'\x1f' read -r dir model ctx quota reset < <(jq -r '[
+IFS=$'\x1f' read -r dir model effort ctx quota reset < <(jq -r '[
   .workspace.current_dir,
   .model.display_name,
-  (.context_window.used_percentage // "" | if . == "" then . else floor end),
+  (.effort.level // ""),
+  (.context_window.used_percentage // 0 | floor),
   (.rate_limits.five_hour.used_percentage // "" | if . == "" then . else floor end),
   (.rate_limits.five_hour.resets_at // "")
 ] | map(tostring) | join("\u001f")')
 
+white=$'\033[97m' cyan=$'\033[1;36m' purple=$'\033[1;35m' reset_color=$'\033[0m'
+branch_symbol=$'\xee\x82\xa0' # U+E0A0, Powerline branch glyph (in Iosevka), as in starship
+sep=" ${white}|${reset_color} "
+
 # Green below 50%, yellow below 80%, red above
-level() {
-  if (( $1 < 50 )); then printf '32'; elif (( $1 < 80 )); then printf '33'; else printf '31'; fi
+level_color() {
+  if (( $1 < 50 )); then printf '\033[32m'; elif (( $1 < 80 )); then printf '\033[33m'; else printf '\033[31m'; fi
 }
 
-out="\033[1;36m${dir/#$HOME/\~}\033[0m"
+# "Ctx ▓▓▓░░░░░░░ 35%": 10-cell gauge, one cell per 10% (rounded)
+gauge() {
+  local label=$1 pct=$2 filled=$(( ($2 + 5) / 10 )) bar="" i
+  (( filled > 10 )) && filled=10
+  for (( i = 0; i < 10; i++ )); do
+    (( i < filled )) && bar+="▓" || bar+="░"
+  done
+  printf '%s%s %s%s %s%%%s' "$white" "$label" "$(level_color "$pct")" "$bar" "$pct" "$reset_color"
+}
 
-branch=$(git -C "$dir" --no-optional-locks branch --show-current 2>/dev/null)
-[[ -n $branch ]] && out+=" \033[1;35m⎇ $branch\033[0m"
+# Path: git project name, or ~-relative path with /.../ when deeper than 5 parts
+location() {
+  local top branch path parts
+  { read -r top; read -r branch; } < <(git -C "$dir" --no-optional-locks rev-parse --show-toplevel --abbrev-ref HEAD 2>/dev/null)
+  if [[ -n $top ]]; then
+    printf '%s%s%s %s%s %s%s' "$cyan" "${top##*/}" "$reset_color" "$purple" "$branch_symbol" "$branch" "$reset_color"
+    return
+  fi
+  path=${dir/#$HOME/\~}
+  IFS=/ read -r -a parts <<< "$path"
+  if (( ${#parts[@]} > 5 )); then
+    path="${parts[0]}/${parts[1]}/.../${parts[${#parts[@]}-2]}/${parts[${#parts[@]}-1]}"
+  fi
+  printf '%s%s%s' "$cyan" "$path" "$reset_color"
+}
 
-out+=" \033[2m·\033[0m $model"
-
-[[ -n $ctx ]] && out+=" \033[2m·\033[0m ctx \033[$(level "$ctx")m${ctx}%\033[0m"
+out="$(location)${sep}${white}${model}${effort:+ ($effort)}${reset_color}"
+out+="${sep}$(gauge Ctx "$ctx")"
 
 if [[ -n $quota ]]; then
   time=$(date -r "$reset" +%H:%M 2>/dev/null || date -d "@$reset" +%H:%M 2>/dev/null)
-  out+=" \033[2m·\033[0m 5h \033[$(level "$quota")m${quota}%\033[0m"
-  [[ -n $time ]] && out+=" \033[2m↻ $time\033[0m"
+  out+="${sep}$(gauge Use "$quota")${time:+ ${white}↻${time}${reset_color}}"
 fi
 
-printf '%b\n' "$out"
+printf '%s\n' "$out"
