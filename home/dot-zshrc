@@ -232,9 +232,11 @@ alias led="hledger -f ~/kDrive/Documents/ledger/all.ledger ${LEDGER_ARGS}"
 
 # Rbenv & Nodenv
 # ------------------------------------------------
-_has nodenv && eval "$(nodenv init -)"
-_has pyenv  && eval "$(pyenv init -)"
-_has rbenv  && eval "$(rbenv init -)"
+# Shims only: `init -` runs a slow rehash on every startup (~800ms).
+# Run `xxenv rehash` manually if a new binary is missing.
+_force_prepend_to_path "$HOME/.nodenv/shims"
+_force_prepend_to_path "$HOME/.pyenv/shims"
+_force_prepend_to_path "$HOME/.rbenv/shims"
 
 # watson
 # ------------------------------------------------
