@@ -6,9 +6,9 @@
 batt=$(pmset -g batt | grep -o '[0-9]*%; [^;]*') # e.g. "100%; charged"
 case ${batt#*; } in
   charged*|full*) icon='🔌 ' ;;
-  charging*)      icon=' ' ;;
-  discharging*)   icon='⬇︎ ' ;;
-  *attached*)     icon=' ' ;;
-  *)              icon='? ' ;;
+  charging*)      icon='⚡ ' ;;
+  discharging*)   icon='🔋 ' ;;
+  *attached*)     icon='🔌 ' ;;
+  *)              icon='❓ ' ;;
 esac
 printf '%s%s\n' "$icon" "${batt%%;*}"
