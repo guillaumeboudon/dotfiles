@@ -284,7 +284,6 @@ alias v="nvim"
 alias vimdiff="nvim -d"
 alias vi="$HOMEBREW_PREFIX/bin/vim"
 
-alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias mux="tmuxinator"
 
 alias w="watson"
