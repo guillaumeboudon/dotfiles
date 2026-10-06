@@ -348,5 +348,31 @@ call <sid>hi("StartifySpecial",  g:base16_gui03, "", g:base16_cterm03, "", "", "
 " Java highlighting
 call <sid>hi("javaOperator",     g:base16_gui0D, "", g:base16_cterm0D, "", "", "")
 
+" Neovim 0.10+ highlighting (falls back to Nvim* default colors otherwise)
+call <sid>hi("@variable",                 g:base16_gui05, "", g:base16_cterm05, "", "", "")
+call <sid>hi("Added",                     g:base16_gui0B, "", g:base16_cterm0B, "", "", "")
+call <sid>hi("Changed",                   g:base16_gui0E, "", g:base16_cterm0E, "", "", "")
+call <sid>hi("Removed",                   g:base16_gui08, "", g:base16_cterm08, "", "", "")
+call <sid>hi("DiagnosticError",           g:base16_gui08, "", g:base16_cterm08, "", "", "")
+call <sid>hi("DiagnosticWarn",            g:base16_gui0A, "", g:base16_cterm0A, "", "", "")
+call <sid>hi("DiagnosticInfo",            g:base16_gui0D, "", g:base16_cterm0D, "", "", "")
+call <sid>hi("DiagnosticHint",            g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
+call <sid>hi("DiagnosticOk",              g:base16_gui0B, "", g:base16_cterm0B, "", "", "")
+call <sid>hi("DiagnosticUnderlineError",  "", "", "", "", "undercurl", g:base16_gui08)
+call <sid>hi("DiagnosticUnderlineWarn",   "", "", "", "", "undercurl", g:base16_gui0A)
+call <sid>hi("DiagnosticUnderlineInfo",   "", "", "", "", "undercurl", g:base16_gui0D)
+call <sid>hi("DiagnosticUnderlineHint",   "", "", "", "", "undercurl", g:base16_gui0C)
+call <sid>hi("DiagnosticUnderlineOk",     "", "", "", "", "undercurl", g:base16_gui0B)
+call <sid>hi("DiagnosticDeprecated",      "", "", "", "", "strikethrough", g:base16_gui08)
+call <sid>hi("NormalFloat",               g:base16_gui05, g:base16_gui01, g:base16_cterm05, g:base16_cterm01, "", "")
+call <sid>hi("FloatShadow",               "", g:base16_gui00, "", g:base16_cterm00, "", "")
+call <sid>hi("FloatShadowThrough",        "", g:base16_gui00, "", g:base16_cterm00, "", "")
+call <sid>hi("CurSearch",                 g:base16_gui01, g:base16_gui09, g:base16_cterm01, g:base16_cterm09, "", "")
+call <sid>hi("QuickFixLine",              g:base16_gui0C, "", g:base16_cterm0C, "", "", "")
+call <sid>hi("PmenuThumb",                "", g:base16_gui04, "", g:base16_cterm04, "", "")
+call <sid>hi("WinBar",                    g:base16_gui04, g:base16_gui01, g:base16_cterm04, g:base16_cterm01, "", "")
+call <sid>hi("WinBarNC",                  g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm01, "", "")
+call <sid>hi("OkMsg",                     g:base16_gui0B, "", g:base16_cterm0B, "", "", "")
+
 " Remove functions
 delf <sid>hi
