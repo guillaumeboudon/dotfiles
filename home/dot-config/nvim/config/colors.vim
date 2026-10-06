@@ -35,7 +35,7 @@ call Base16hi("MiniHipatternsNote",  g:base16_gui00, g:base16_gui0C, g:base16_ct
 set termguicolors
 
 " Make trailing spaces very visible
-highlight ExtraWhitespace ctermfg=235 ctermbg=172 guifg=#282828 guibg=#d79921
+call Base16hi("ExtraWhitespace", g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
 let extraWhiteSpaceBlacklist = ['nvim-undotree', '']
 match ExtraWhiteSpace /\s\+$/
 augroup extra_whitespace
