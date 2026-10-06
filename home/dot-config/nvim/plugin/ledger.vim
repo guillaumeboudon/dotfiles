@@ -15,12 +15,3 @@ augroup ledger
   autocmd FileType ledger noremap <buffer> { ?^\d<CR>
   autocmd BufWritePre *.ledger call LedgerAlignAll()
 augroup END
-
-function! LedgerSort()
-  let save_pos = getpos(".")
-  :%! ledger -f - print --sort 'date, amount' --prepend-width 2
-  normal gg=G
-  :%LedgerAlign
-  call setpos(".", save_pos)
-endfunction
-command! LedgerSort call LedgerSort()
