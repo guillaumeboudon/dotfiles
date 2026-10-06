@@ -1,5 +1,5 @@
 " Trim spaces at EOL and retab. I run `:CLEAN` a lot to clean up files.
-command! TEOL %s/\s\+$//
+command! TEOL keeppatterns %s/\s\+$//e
 command! CLEAN retab | TEOL
 
 " Close all buffers except this one
