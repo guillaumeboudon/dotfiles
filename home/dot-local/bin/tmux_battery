@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# Battery icon and percentage for the tmux status bar (macOS pmset).
+# Same states as the former tmux-battery plugin.
+
+batt=$(pmset -g batt | grep -o '[0-9]*%; [^;]*') # e.g. "100%; charged"
+case ${batt#*; } in
+  charged*|full*) icon='🔌 ' ;;
+  charging*)      icon=' ' ;;
+  discharging*)   icon='⬇︎ ' ;;
+  *attached*)     icon=' ' ;;
+  *)              icon='? ' ;;
+esac
+printf '%s%s\n' "$icon" "${batt%%;*}"
