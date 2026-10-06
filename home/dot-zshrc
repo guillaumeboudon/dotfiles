@@ -439,8 +439,18 @@ eval "$(starship init zsh)"
 
 _try_source "$XDG_CONFIG_HOME/zsh/local.zsh"
 
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export OPENSSL_CONF=/dev/null
+# Workarounds disabled on 2026-10-06 to find out whether they are still needed.
+# If something breaks, come back here: re-enable the matching one, ideally scoped
+# to the tool or project that needs it rather than globally.
+
+# macOS kills a process that forks after loading Objective-C frameworks
+# ("objc[…]: … may have been in progress in another thread when fork() was
+# called"). Seen with Ruby: pg/GSSAPI, Rails parallel tests, puma workers, spring.
+# export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Ignore Homebrew's OpenSSL 3 config: a tool bundling an old OpenSSL fails on it
+# ("Auto configuration failed"), e.g. PhantomJS or wkhtmltopdf.
+# export OPENSSL_CONF=/dev/null
 
 # }}}
 
