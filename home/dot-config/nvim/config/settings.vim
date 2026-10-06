@@ -39,8 +39,7 @@ set smartcase                  " casse intelligente lors de la recherche
 set backup                     " Active le backup des fichiers sauvegardés
 set noswapfile                 " Désactive les fichiers swap
 set undofile                   " Active les fichers undo
-set backupdir=~/.cache/vim/backups " Dossier pour les backups
-set undodir=~/.cache/vim/undos " Dossier pour les undos
+set backupdir=~/.local/state/nvim/backup// " Backups hors des projets, nommés par chemin complet
 set tags^=.tags;               " Set tags file
 
 " > Folding
