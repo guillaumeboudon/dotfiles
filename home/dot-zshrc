@@ -59,12 +59,6 @@ _try_source_plugin() {
   return 1
 }
 
-# Append a given directory to the path (only if it exists)
-# ------------------------------------------------------------------------------
-_append_to_path() {
-  [ -d "$1" -a -z "${path[(r)$1]}" ] && PATH=$PATH:$1
-}
-
 # Prepend a given directory to the path (if it exists)
 # ------------------------------------------------------------------------------
 _prepend_to_path() {
