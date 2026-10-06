@@ -56,10 +56,23 @@ Palette: `home/dot-config/base16/current.sh` → `schemes/<name>.sh`, read by zs
   - KeyRepeat : 2 (30ms)
   - InitialKeyRepeat : 15 (225ms)
 
-## Todo
+## Ruby ctags
 
-Implement ctags for rails apps:
+`resources/git_hooks/ctags-ruby` rebuilds `.tags` from the tracked Ruby files
+(read by nvim through `set tags^=.tags;`). Run it by hand with `git ctags`, or
+from the git hooks of each Ruby repository (executable files in `.git/hooks/`):
 
-```shell
-ctags --tag-relative -Rf.tags --exclude=.git --exclude=tmp --exclude=public --exclude=log --exclude=elm-stuff --exclude=node_modules --languages=ruby .
-```
+- `post-checkout`, `post-commit`, `post-merge`:
+    ```bash
+    #!/bin/bash
+
+    ~/.dotfiles/resources/git_hooks/ctags-ruby >/dev/null 2>&1 &
+    ```
+- `post-rewrite` (rebuild after a rebase):
+    ```bash
+    #!/bin/bash
+
+    case "$1" in
+      rebase) exec .git/hooks/post-merge ;;
+    esac
+    ```
