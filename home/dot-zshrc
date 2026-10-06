@@ -44,12 +44,6 @@ _has() {
   return $(command -v $1 &>/dev/null)
 }
 
-# Check if the host is of the expected type
-# ------------------------------------------------------------------------------
-_is() {
-  return $([ "$HOSTTYPE" = "$1" ])
-}
-
 # Helpers
 # ------------------------------------------------
 _try_source() {
@@ -95,8 +89,7 @@ export LC_MESSAGES="POSIX" # Set POSIX for commands messages
 
 # Host
 # ------------------------------------------------------------------------------
-export HOSTNAME="$(uname -n)"
-export HOSTTYPE="$(uname -s)"
+export HOSTNAME="$HOST"
 
 # Homebrew (set by `brew shellenv` in login shells; `brew --prefix` is slow)
 # ------------------------------------------------------------------------------
@@ -204,7 +197,7 @@ export CLICOLOR=1
 
 # GPG
 # ------------------------------------------------------------------------------
-export GPG_TTY=$(tty) # This is mandatory for gpg-agent to work correctly
+export GPG_TTY=$TTY # This is mandatory for gpg-agent to work correctly
 
 # Ripgrep
 # ------------------------------------------------------------------------------
