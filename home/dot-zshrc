@@ -416,21 +416,6 @@ export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 # > PROMPT {{{1
 # ==============================================================================
 
-#autoload -U colors && colors
-#autoload -Uz vcs_info
-#
-#precmd() { vcs_info }
-#setopt PROMPT_SUBST
-#shorten_pwd() { echo $PWD | sed -e "s;$HOME;~;" -e "s;\(\.*[^/]\)[^/]*/;\1/;g" }
-#
-#zstyle ':vcs_info:git:*' formats '%F{black}%K{green}  %b %k%f'
-#zstyle ':vcs_info:git:*' actionformats '%F{black}%K{green}  %b %k%f'
-#PROMPT='%F{yellow}%K{10}%n@%m %k%f'
-#PROMPT+='%F{10}%K{blue}%k%f'
-#PROMPT+='%F{black}%K{blue} $(shorten_pwd) %k%f'
-#PROMPT+='%F{blue}%K{green}%k%f'
-#PROMPT+='${vcs_info_msg_0_}'
-#PROMPT+='%F{green}%f '
 eval "$(starship init zsh)"
 
 # > LOCAL CONFIG {{{1
