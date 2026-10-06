@@ -19,6 +19,7 @@
     rbenv global <version>
     ```
 7. Install global gems: `bundle install`
+8. Install Python packages (pyenv global version): `pip install mutagen` (used by `ptags` and `retag`)
 
 ## Colors (base16)
 
