@@ -1,0 +1,32 @@
+#!/usr/bin/env -S nvim -l
+
+-- List nvim highlight groups whose colors are not in the base16 palette.
+-- Run it after each major nvim upgrade: new groups fall back to Nvim* defaults.
+-- Exits 1 if any group is found.
+
+local palette = {}
+for line in io.lines(vim.fn.stdpath("config") .. "/../base16/current.sh") do
+  local hex = line:match('^export BASE16_%x%x="(%x+)"')
+  if hex then palette[hex:lower()] = true end
+end
+
+-- nvim internals, never visible in normal use
+local ignored = { NvimInternalError = true }
+
+vim.cmd.colorscheme("base16")
+
+local found = {}
+for name, hl in pairs(vim.api.nvim_get_hl(0, {})) do
+  if not hl.link and not ignored[name] and not name:match("^RedrawDebug") then
+    for _, key in ipairs({ "fg", "bg", "sp" }) do
+      local hex = hl[key] and string.format("%06x", hl[key])
+      if hex and not palette[hex] then
+        table.insert(found, string.format("%-30s %s=#%s", name, key, hex))
+      end
+    end
+  end
+end
+
+table.sort(found)
+for _, line in ipairs(found) do io.write(line, "\n") end
+os.exit(#found == 0 and 0 or 1)
