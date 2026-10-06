@@ -44,7 +44,16 @@
   pager = "diff-so-fancy | emojify | less -RFX"
 
 [commit]
-  # gpgsign = true
+  gpgsign = true
+
+[tag]
+  gpgsign = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = "~/.config/git/allowed_signers"
 
 [pull]
   rebase = false
