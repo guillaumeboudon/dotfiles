@@ -256,6 +256,8 @@ alias c="bundle exec cucumber"
 alias ct="c --tags"
 alias cr="c --profile rerun"
 
+alias e="lf"
+
 alias g="git"
 
 # alias ls="gls -v  --color=auto --group-directories-first --classify"
